@@ -1,0 +1,2 @@
+class Eleve < User
+end
