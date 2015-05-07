@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Squiierrel</title>
         <link rel="stylesheet" href="/app/assets/stylesheets/style.css" />
+
     </head>
     <body>
         <h1>Squiierrel</h1>
@@ -13,6 +14,33 @@
         <li class="logout">
             <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, class: "logoutlink") %>
         </li>
+
+            <% Annonce.all.each do |anonce| %>
+            <div>
+                <%= anonce.entreprise %>
+            </div>
+            <div>
+                <%= anonce.titre %>
+            </div>
+            <div>
+                <%= anonce.description %>
+            </div>
+            <div>
+                <%= anonce.duree %>
+            </div>
+            <div>
+                <%= anonce.datedebut %>
+            </div>
+            <div>
+                <%= anonce.etat %>
+            </div>
+            <div>
+                <%= anonce.created_at %>
+            </div>
+            <div>
+                <%= anonce.genre %>
+            </div>
+            <% end %>
         <% end %>
     </body>
 </html>
