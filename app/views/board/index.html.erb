@@ -10,8 +10,8 @@
         <h1>Squiierrel</h1>
         <h2>Donnez de la puissance à vos stages !</h2>
         <% if user_signed_in? %>
-        <li>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+        <li class="logout">
+            <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, class: "logoutlink") %>
         </li>
         <% end %>
     </body>
