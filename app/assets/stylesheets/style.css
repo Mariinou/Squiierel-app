@@ -219,7 +219,7 @@ h2 {
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     letter-spacing: 1px;
     text-align: center;
-    position: fixed;
+    position: absolute;
     left: 90%;
     top: 2%;
 }

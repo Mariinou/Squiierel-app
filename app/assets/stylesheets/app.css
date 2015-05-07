@@ -28,9 +28,12 @@
   float: none; }
 
 .m-show {
-  display: none; }
+  display: block; }
 
 .l-show {
+  display: block; }
+
+.s-hidden {
   display: none; }
 
 .col-s-center {
@@ -451,7 +454,7 @@
     display: block; }
 
   .s-show {
-    display: none; } }
+    display: block; } }
 @media only screen and (min-width: 1024px) {
   .col-l-center {
     margin: 0 auto;
@@ -665,4 +668,4 @@
     display: block; }
 
   .m-show {
-    display: none; } }
+    display: block; } }
