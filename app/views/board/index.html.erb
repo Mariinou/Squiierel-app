@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Squiierrel</title>
         <link rel="stylesheet" href="/app/assets/stylesheets/style.css" />
-
+        <link rel="stylesheet" href="/app/assets/stylesheets/app.css" />
     </head>
     <body>
         <h1>Squiierrel</h1>
@@ -14,32 +14,61 @@
         <li class="logout">
             <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, class: "logoutlink") %>
         </li>
+
+        <div class="row">
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-2">
+                Entreprise
+            </div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-2 col-s-push-1">
+                Titre
+            </div>
+            <div class="col-l-2 col-l-push-1 col-m-2 col-s-0">
+                Description
+            </div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-2 col-s-push-1">
+                Durée
+            </div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-2 col-s-push-1">
+                Date de début
+            </div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-0">
+                Etat
+            </div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-0">
+                Crée le
+            </div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-2 col-s-push-1">
+                Type
+            </div>
+        </div>
+            <div class="row">
             <% Annonce.all.each do |anonce| %>
-            <div>
+            <div class="col-l-1  col-l-push-1 col-m-1 col-s-2">
                 <%= anonce.entreprise %>
             </div>
-            <div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-2 col-s-push-1">
                 <%= anonce.titre %>
             </div>
-            <div>
+            <div class="col-l-2 col-l-push-1 col-m-2 col-s-0">
                 <%= anonce.description %>
             </div>
-            <div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-2 col-s-push-1">
                 <%= anonce.duree %>
             </div>
-            <div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-0">
                 <%= anonce.datedebut %>
             </div>
-            <div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-0">
                 <%= anonce.etat %>
             </div>
-            <div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-0">
                 <%= anonce.created_at %>
             </div>
-            <div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-s-2 col-s-push-1">
                 <%= anonce.genre %>
             </div>
             <% end %>
+            </div>
         <% end %>
     </body>
 </html>
