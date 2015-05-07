@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Squiierrel</title>
+        <link rel="stylesheet" href="/app/assets/stylesheets/style.css" />
+	<link rel="stylesheet" href="/app/assets/stylesheets/app.css" />
+    </head>
+    <body>
+        <h1>Squiierrel</h1>
+        <h2>Donnez de la puissance à vos stages !</h2>
+        <% if user_signed_in? %>
+        <li class="logout">
+            <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, class: "logoutlink") %>
+        
+            <% end %>
+        <% end %>
+    </body>
+</html>
