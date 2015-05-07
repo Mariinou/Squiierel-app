@@ -14,7 +14,6 @@
         <li class="logout">
             <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, class: "logoutlink") %>
         </li>
-
             <% Annonce.all.each do |anonce| %>
             <div>
                 <%= anonce.entreprise %>
