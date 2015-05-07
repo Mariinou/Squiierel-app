@@ -5,16 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Squiierrel</title>
         <link rel="stylesheet" href="/app/assets/stylesheets/style.css" />
-	<link rel="stylesheet" href="/app/assets/stylesheets/app.css" />
+	   <link rel="stylesheet" href="/app/assets/stylesheets/app.css" />
+       <% if user.kind_of? Administrateur %>
+        
+        <% else %>
+        <meta http-equiv="refresh" content="0"; url="/" />
+        <% end %>
     </head>
     <body>
         <h1>Squiierrel</h1>
         <h2>Donnez de la puissance à vos stages !</h2>
-        <% if user_signed_in? %>
+        <% if user.kind_of? Administrateur %>
         <li class="logout">
             <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, class: "logoutlink") %>
         
             <% end %>
+        </li>
+        <% else %>
+
         <% end %>
     </body>
 </html>
