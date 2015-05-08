@@ -8,8 +8,11 @@
        <link rel="stylesheet" href="/app/assets/stylesheets/app.css" />
     </head>
     <body>
-        <h1>Squiierrel</h1>
-        <h2>Donnez de la puissance à vos stages !</h2>
+       <!-- Header!-->
+        <%= render "board/header" %>
+        <!--Fin Header!-->
+
+
         <% if User.kind_of? Administrateur %>
         <li class="logout">
             <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, class: "logoutlink") %>
