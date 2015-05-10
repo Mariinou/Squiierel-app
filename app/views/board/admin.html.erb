@@ -13,7 +13,7 @@
         <!--Fin Header!-->
 
 
-        <% if User.kind_of? Administrateur %>
+        <% if admin? %>
         <li class="logout">
             <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, class: "logoutlink") %>
         </li>
