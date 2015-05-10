@@ -7,6 +7,10 @@ class AnnoncesController < ApplicationController
         @annonces = Annonce.all
     end
 
+    def admin
+        @annonces = Annonce.all
+    end
+
     def new
         @annonce = Annonce.new
     end
@@ -34,6 +38,13 @@ class AnnoncesController < ApplicationController
         else
             render :action => 'edit'
         end
+    end
+
+    def destroy
+        @annonce = Annonce.find(params[:id])
+        @annonce.destroy
+        flash[:notice] = 'Annonce supprimmée'
+        redirect_to home_path
     end
 
     private

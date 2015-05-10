@@ -57,5 +57,16 @@
                 <%= annonce.genre %>
             </div>
         </div>
+        <%if admin?%>
+        <p> <i class="fa fa-minus fa-fw fa-inverse"></i>
+            <%= link_to 'Supprimmer', annonce_path(annonce), :method => :delete, :confirm => 'êtes vous sûr ?', class: "link"%>
+        </p>
+        <p> <i class="fa fa-pencil fa-fw fa-inverse"></i>&nbsp;
+            <%= link_to 'Editer', edit_annonce_path(annonce), class: "link" %>
+        </p>
+        <%end%>
         <% end %>
+        <%if admin?%>
+        <p><i class="fa fa-plus fa-fw fa-inverse"></i><%= link_to 'Nouvelle annonce', new_annonce_path, class: "link" %></p>
+        <%end%>
         <!-- Fin de l'affichage des annonces !-->

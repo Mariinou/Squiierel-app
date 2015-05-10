@@ -17,10 +17,10 @@ Rails.application.routes.draw do
     root 'annonces#index', :as => :home
     get '/admin' => 'annonces#admin', :as => :admin
     get '/annonces/new' => 'annonces#new', :as => :new_annonce
+    get '/annonces/edit/:id' => 'annonces#edit', :as => :edit_annonce
 
 
     resources :annonces
-
   # Example resource route with options:
   #   resources :products do
   #     member do
