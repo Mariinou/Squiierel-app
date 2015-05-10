@@ -25,8 +25,8 @@
                 Type
             </div>
         </div>
+        <% for annonce in @annonces %>
         <div class="row">
-            <% for annonce in @annonces %>
             <div class="col-l-1  col-l-push-1 col-m-1 col-s-2">
                 <%= annonce.entreprise %>
             </div>
@@ -56,6 +56,6 @@
             <div class="col-l-1 col-l-push-1 col-m-1 col-m-push-2 col-s-2 col-s-push-1">
                 <%= annonce.genre %>
             </div>
-            <% end %>
         </div>
+        <% end %>
         <!-- Fin de l'affichage des annonces !-->

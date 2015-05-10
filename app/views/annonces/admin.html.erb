@@ -5,21 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Squiierrel</title>
         <link rel="stylesheet" href="/app/assets/stylesheets/style.css" />
-        <link rel="stylesheet" href="/app/assets/stylesheets/app.css" />
+       <link rel="stylesheet" href="/app/assets/stylesheets/app.css" />
     </head>
     <body>
-        <!-- Header!-->
-        <%= render "board/header" %>
+       <!-- Header!-->
+        <%= render "annonces/header" %>
         <!--Fin Header!-->
 
-        <% if user_signed_in? %>
+
+        <% if admin? %>
         <li class="logout">
             <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, class: "logoutlink") %>
         </li>
-        <!-- Affichage des annonces!-->
-        <%= render "board/annonces" %>
-        <!--Fin Affichage des annonces!-->
 
+
+        <p><%= link_to 'Nouvelle annonce', new_annonce_path %></p>
         <% end %>
     </body>
 </html>

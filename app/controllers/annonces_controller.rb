@@ -1,10 +1,10 @@
-class BoardController < ApplicationController
+class AnnoncesController < ApplicationController
     before_action :authenticate_user!
 
     before_filter :authorize, :except => :index
 
     def index
-        @annonces = Annonce.all.order(:entreprise)
+        @annonces = Annonce.all
     end
 
     def new
@@ -12,7 +12,7 @@ class BoardController < ApplicationController
     end
 
     def create
-        @annonce = Annonce.new(params[:annonce])
+        @annonce = Annonce.new(annonce_params)
         if @annonce.save
             flash[:notice] = 'Annonce créée avec succès'
             redirect_to admin_path
@@ -28,12 +28,18 @@ class BoardController < ApplicationController
 
     def update
         @annonce = Annonce.find(params[:id])
-        if @annonce.update_attributes(params[:annonce])
+        if @annonce.update_attributes(annonce_params)
             flash[:notice] = 'Mise à jour de l\' annonce effectuée avec succès'
             redirect_to admin_path
         else
             render :action => 'edit'
         end
+    end
+
+    private
+
+    def annonce_params
+        params.require(:annonce).permit(:entreprise, :titre, :description, :duree, :datedebut, :moyencontact, :genre)
     end
 
 end

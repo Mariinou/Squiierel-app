@@ -1,0 +1,18 @@
+<h2>Nouvelle annonce</h2>
+
+<%= form_for @annonce do |f| %>
+
+
+<%= f.text_field :entreprise %>
+<%= f.text_field :titre %>
+<%= f.text_field :description %>
+<%= f.text_field :duree %>
+<%= f.date_field :datedebut %>
+<%= f.text_field :moyencontact %>
+<%= f.text_field :genre %>
+
+
+  <div class="actions">
+      <%= f.submit "Enregistrer" %>
+  </div>
+<% end %>
