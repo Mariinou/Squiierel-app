@@ -20,6 +20,6 @@ class AdministrateursController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:nom, :prenom, :email, :promo, :numtel, :role, :password)
+        params.require(:user).permit(:nom, :prenom, :email, :promo, :numtel, :role, :password, :state)
     end
 end
