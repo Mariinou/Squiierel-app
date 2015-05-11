@@ -9,9 +9,10 @@ class AdministrateursController < ApplicationController
     def create_user
         @user = User.new(user_params)
         if @user.save
-            #success
+            flash[:notice] = 'Utilisateur ajouté avec succès'
+            redirect_to admin_path
         else
-            #error
+            render :action => 'new_user'
         end
 
     end
