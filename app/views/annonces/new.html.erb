@@ -5,17 +5,18 @@
 
 <%= form_for @annonce do |f| %>
 
-
-<%= f.text_field :entreprise %>
-<%= f.text_field :titre %>
-<%= f.text_field :description %>
-<%= f.text_field :duree %>
-<%= f.date_field :datedebut %>
-<%= f.text_field :moyencontact %>
-<%= f.text_field :genre %>
-
+<div class="login">
+    <%= f.text_field :entreprise, placeholder: "Entreprise" %>
+    <%= f.text_field :titre, placeholder: "Titre" %>
+    <%= f.text_field :description, placeholder: "Description" %>
+    <%= f.text_field :duree, placeholder: "Durée" %>
+    <%= f.label :Date_de_début %>
+    <%= f.date_field :datedebut, placeholder: "Date de début" %>
+    <%= f.text_field :moyencontact, placeholder: "Moyen de contact" %>
+    <%= f.text_field :genre, placeholder: "Type" %>
 
   <div class="actions">
-      <%= f.submit "Enregistrer" %>
+      <%= f.submit "Enregistrer",class: "btn btn-primary btn-block btn-large" %>
   </div>
+</div>
 <% end %>
