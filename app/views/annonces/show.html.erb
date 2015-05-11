@@ -1,0 +1,13 @@
+<!-- Header!-->
+<%= render "annonces/header" %>
+<!--Fin Header!-->
+<h2><%= @annonce.titre%></h2>
+
+<%= @annonce.entreprise %>
+<%= @annonce.description %>
+<%= @annonce.duree %>
+<%= @annonce.datedebut %>
+<%= @annonce.moyencontact %>
+<%= @annonce.genre %>
+
+<%= link_to 'Retour', home_path, class: "link" %>

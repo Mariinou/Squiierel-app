@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get '/admin' => 'annonces#admin', :as => :admin
     get '/annonces/new' => 'annonces#new', :as => :new_annonce
     get '/annonces/edit/:id' => 'annonces#edit', :as => :edit_annonce
+    get '/annonces/show/:id' => 'annonces#show', :as => :show_annonce
 
 
     resources :annonces

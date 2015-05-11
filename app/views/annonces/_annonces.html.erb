@@ -56,17 +56,20 @@
             <div class="col-l-1 col-l-push-1 col-m-1 col-m-push-2 col-s-2 col-s-push-1">
                 <%= annonce.genre %>
             </div>
+            <div class="col-l-1 col-l-push-1 col-m-1 col-m-push-2 col-s-2 col-s-push-1">
+                <%= link_to 'Voir', show_annonce_path(annonce), class: "link" %>
+            </div>
         </div>
         <%if admin?%>
-        <p> <i class="fa fa-minus fa-fw fa-inverse"></i>
-            <%= link_to 'Supprimmer', annonce_path(annonce), :method => :delete, :confirm => 'êtes vous sûr ?', class: "link"%>
+        <p>
+            <%= link_to '<i class="fa fa-minus fa-fw fa-inverse"></i>Supprimmer'.html_safe, annonce_path(annonce), :method => :delete, :confirm => 'êtes vous sûr ?', class: "link"%>
         </p>
-        <p> <i class="fa fa-pencil fa-fw fa-inverse"></i>&nbsp;
-            <%= link_to 'Editer', edit_annonce_path(annonce), class: "link" %>
+        <p>
+            <%= link_to '<i class="fa fa-pencil fa-fw fa-inverse"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonce), class: "link" %>
         </p>
         <%end%>
         <% end %>
         <%if admin?%>
-        <p><i class="fa fa-plus fa-fw fa-inverse"></i><%= link_to 'Nouvelle annonce', new_annonce_path, class: "link" %></p>
+        <p><%= link_to '<i class="fa fa-plus fa-fw fa-inverse"></i>&nbsp;Nouvelle annonce'.html_safe, new_annonce_path, class: "link" %></p>
         <%end%>
         <!-- Fin de l'affichage des annonces !-->

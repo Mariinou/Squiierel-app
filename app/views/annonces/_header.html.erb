@@ -9,5 +9,34 @@ Puis Affichage de liens selon les prviligèges de l'utilisateur en ligne
 -TypeQuest font effects avec calendasplus font pour faire un effet "lyrique"
 
 !-->
+<%if user_signed_in? %><!--Si l'utilisateur est connecté!-->
+    <% if admin? %><!-- Si lutilisateur est un admin !-->
+    <div class="row top">
+    <%= image_tag "logo.png", class:"logo" %>
+    </div>
+    <div class="row margin"></div>
+    <div class="dockedtitle">
+    <p>Squiierrel</p>
+    </div>
+    <div class="dockedtitle2">
+    <p>Donnez de la puissance à vos stages</p>
+    </div>
+    <%= link_to('<i class="fa fa-power-off fa-2x"></i>'.html_safe, destroy_user_session_path, :method => :delete, class:"logout", title:"Déconnecter") %>
+    <%else%><!-- Si l'utilisateur est un élève !-->
+    <div class="row top">
+    <%= image_tag "logo.png", class:"logo" %>
+    </div>
+    <div class="row margin"></div>
+    <div class="dockedtitle">
+    <p>Squiierrel</p>
+    </div>
+    <div class="dockedtitle2">
+    <p>Donnez de la puissance à vos stages</p>
+    </div>
+    <%= link_to('<i class="fa fa-power-off fa-2x"></i>'.html_safe, destroy_user_session_path, :method => :delete, class:"logout", title:"Déconnecter") %>
+    <%end%>
+<%else%><!--Si l'utilisateur n'est pas connecté!-->
 <h1>Squiierrel</h1>
 <h2>Donnez de la puissance à vos stages</h2>
+<%end%>
+

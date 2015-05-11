@@ -1,4 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+@font-face {
+    font-family: 'Calendas Plus';
+    src: local('Calendas Plus Regular'),
+        url('/app/assets/fonts/Calendas_Plus.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .btn {
     display: inline-block;
     *display: inline;
@@ -108,13 +117,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: 'Open Sans', sans-serif;
-    background: #092756;
-    background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -moz-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -moz-linear-gradient(-45deg, #670d10 0%, #092756 100%);
-    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -webkit-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -webkit-linear-gradient(-45deg, #670d10 0%, #092756 100%);
-    background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -o-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -o-linear-gradient(-45deg, #670d10 0%, #092756 100%);
-    background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -ms-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -ms-linear-gradient(-45deg, #670d10 0%, #092756 100%);
-    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), linear-gradient(to bottom, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), linear-gradient(135deg, #670d10 0%, #092756 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#3E1D6D', endColorstr='#092756', GradientType=1);
+    background-image: linear-gradient(45deg, rgba(38, 163, 255, 0.5) 1%, rgba(18, 67, 143, 0.5) 100%), linear-gradient(-45deg, #494d71 0%, rgba(18, 67, 143, 0.5) 80%);
 }
 .login {
     position: absolute;
@@ -212,20 +215,15 @@ h2 {
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#58ff05', endColorstr='#00660b', GradientType=0);
     /* IE6-9 */
 }
-*.logout {
+.logout {
     float: right;
     position: relative;
-    top:-13%;
+    top:-20%;
     left: -3%;
-    list-style-type: none;
-    font-size: 15px;
-    color: #ddd;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    letter-spacing: 1px;
-    text-align: center;
+    color: #000 ;
 }
 
-*.link {
+.link {
     color: #fff;
     text-decoration: none;
 }
@@ -233,4 +231,40 @@ div {
     color: #ddd;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     letter-spacing: 1px;
+}
+
+.logo{
+    float: left;
+}
+
+.top{
+    float: left;
+    position: relative;
+    top:-3%;
+    background-image: linear-gradient(#f3f3f3, #cccccc);
+    box-shadow: 0px 3px 2px 0px rgba(50, 50, 50, 0.2);
+    width: 110%;
+    height: 80px;
+}
+
+.margin{
+    margin-bottom: 60px;
+}
+
+.dockedtitle{
+    color: #000 ;
+    font-size: 2em;
+    font-family: 'Calendas Plus';
+    position: absolute;
+    top:-4%;
+    left: 10%;
+}
+
+.dockedtitle2{
+    color: #555555;
+    font-size: 1em;
+    font-family: 'Calendas Plus';
+    position: absolute;
+    top:5%;
+    left: 10%;
 }

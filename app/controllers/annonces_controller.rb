@@ -1,7 +1,7 @@
 class AnnoncesController < ApplicationController
     before_action :authenticate_user!
 
-    before_filter :authorize, :except => :index
+    before_filter :authorize, :except => [:index,:show]
 
     def index
         @annonces = Annonce.all
@@ -29,6 +29,9 @@ class AnnoncesController < ApplicationController
         @annonce = Annonce.find(params[:id])
     end
 
+    def show
+        @annonce = Annonce.find(params[:id])
+    end
 
     def update
         @annonce = Annonce.find(params[:id])

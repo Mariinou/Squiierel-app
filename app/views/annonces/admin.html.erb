@@ -14,13 +14,8 @@
        <!--Fin Header!-->
 
 
-        <% if admin? %>
-        <li class="logout">
-            <%= link_to('Déconnexion', destroy_user_session_path, :method => :delete, class: "link") %>
-        </li>
         <!-- Affichage des annonces!-->
         <%= render "annonces/annonces" %>
         <!--Fin Affichage des annonces!-->
-        <% end %>
     </body>
 </html>
