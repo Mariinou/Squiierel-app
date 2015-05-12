@@ -10,10 +10,12 @@
 <%= f.text_field :nom, placeholder: "Nom" %>
 <%= f.text_field :prenom, placeholder: "Prénom" %>
 <%= f.email_field :email, placeholder: "Email" %>
+<%= f.text_field :password, placeholder: "Mot de passe" %>
 <%= f.number_field :promo, placeholder: "Promotion" %>
 <%= f.text_field :numtel, placeholder: "Numéro de Téléphone" %>
 <%= f.text_field :role, placeholder: "Rôle" %>
-<%= f.text_field :password, placeholder: "Mot de passe" %>
+<%= f.label :Activé %>
+<%= f.check_box :state %>
 
   <div class="actions ">
       <%= f.submit "Enregistrer",class: "btn btn-primary btn-block btn-large" %>
