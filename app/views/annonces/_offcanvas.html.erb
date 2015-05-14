@@ -46,23 +46,23 @@
             </li>
             <%end%>
 
-            <% if current_page?(users_index_path) %>
+            <% if current_page?(edit_user_registration_path) %>
             <li class="uk-active">
-                <%= link_to 'Mon Compte', home_path %>
+                <%= link_to 'Mon Compte', edit_user_registration_path %>
             </li>
             <% else %>
             <li>
-                <%= link_to 'Mon Compte', home_path %>
+                <%= link_to 'Mon Compte', edit_user_registration_path %>
             </li>
             <%end%>
 
-            <% if current_page?(users_index_path) %>
+            <% if current_page?(new_annonce_path) %>
             <li class="uk-active">
-                <%= link_to 'Proposer une annonce', home_path %>
+                <%= link_to 'Proposer une annonce', new_annonce_path %>
             </li>
             <% else %>
             <li>
-                <%= link_to 'Proposer une annonce', home_path %>
+                <%= link_to 'Proposer une annonce', new_annonce_path %>
             </li>
             <%end%>
             <li>

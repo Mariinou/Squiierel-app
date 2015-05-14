@@ -1,7 +1,7 @@
 class AnnoncesController < ApplicationController
     before_action :authenticate_user!
 
-    before_filter :authorize, :except => [:index,:show]
+    before_filter :authorize, :except => [:index,:show,:create,:new]
 
     def index
         if params[:type] == "stage"
@@ -28,7 +28,7 @@ class AnnoncesController < ApplicationController
         @annonce = Annonce.new(annonce_params)
         if @annonce.save
             flash[:notice] = 'Annonce créée avec succès'
-            redirect_to admin_path
+            redirect_to home_path
         else
             render :action => 'new'
         end

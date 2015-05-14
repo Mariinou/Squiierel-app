@@ -2,6 +2,27 @@
 <br>
 <h3>Trier par type :</h3>
 <ul class="uk-subnav uk-subnav-line uk-subnav-pill">
+    <%if @type == "stage"%>
+    <li>
+        <%= link_to "Tout", :action => "index" %>
+    </li>
+    <li class="uk-active">
+        <%= link_to "Stage", :action => "index", :type => "stage" %>
+    </li>
+    <li>
+        <%= link_to "Alternance", :action => "index", :type => "alternance" %>
+    </li>
+    <%elsif @type == "alternance"%>
+    <li>
+        <%= link_to "Tout", :action => "index" %>
+    </li>
+    <li>
+        <%= link_to "Stage", :action => "index", :type => "stage" %>
+    </li>
+    <li class="uk-active">
+        <%= link_to "Alternance", :action => "index", :type => "alternance" %>
+    </li>
+    <%else%>
     <li class="uk-active">
         <%= link_to "Tout", :action => "index" %>
     </li>
@@ -11,8 +32,8 @@
     <li>
         <%= link_to "Alternance", :action => "index", :type => "alternance" %>
     </li>
+    <%end%>
 </ul>
-<br>
 <table class="uk-table uk-table-hover uk-table-striped">
     <thead>
         <tr class="uk-text-primary uk-table-middle">
@@ -73,7 +94,7 @@
             <%end%>
         </tr>
         <tr class="uk-text-primary uk-table-middle uk-hidden-large uk-hidden-medium" >
-        <%if admin?%>
+            <%if admin?%>
             <td>
                 <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonce), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
             </td>
