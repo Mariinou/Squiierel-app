@@ -1,18 +1,50 @@
-<h2>Changer l'annonce</h2>
+<div class="uk-grid">
+    <div class="uk-width-2-3">
+        <br />
+        <h2>Changer l'annonce</h2>
 
-<%= form_for @annonce do |f| %>
+        <%= form_for @annonce , html: { class:"uk-form" } do |f| %>
+        <%= f.text_field :entreprise, placeholder: "Entreprise",class:"uk-width-1-4" %>
+        <%= f.text_field :titre, placeholder: "Titre",class:"uk-width-2-4" %>
+        <br />
+        <br />
+        <%= f.select(:genre) do %>
+        <% [['Stage        ', "Stage"], ['Alternance     ', "Alternance"]].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+        <% end %>
+        <% end %>
+        <%= f.text_field :moyencontact, placeholder: "Moyen de contact",class:"uk-width-2-6"%>
+        <br />
+        <br />
+        <%= f.label :Date_de_début,class:"uk-width-1-6" %>
+        <br />
+        <%= f.date_field :datedebut, placeholder: "Date de début",class:"uk-width-1-6" %>
+        <%= f.text_field :duree, placeholder: "Durée",class:"uk-width-1-6" %>
+        <br />
+        <br />
+        <%if admin?%>
+        <%= f.label :Valider,class:"uk-width-1-6" %>
+        <br />
+        <%= f.check_box :validee %>
+        <br />
+        <br />
+        <%end%>
+        <%= f.text_area :description, placeholder: "Description",:size => "89x10" %>
 
+        <br />
+        <br />
 
-<%= f.text_field :entreprise %>
-<%= f.text_field :titre %>
-<%= f.text_field :description %>
-<%= f.text_field :duree %>
-<%= f.date_field :datedebut %>
-<%= f.text_field :moyencontact %>
-<%= f.text_field :genre %>
+        <div class="actions uk-text-contrast">
+            <br />
+            <%= f.submit "Enregistrer",class: "uk-button uk-button-primary uk-button-large" %>
+            <% end %>
+        </div>
+    </div>
+    <div class="uk-width-1-3">
+        <br />
+        <br />
+        <br />
+        <%= link_to "Retour", :back, class:"uk-button" %>
+    </div>
+</div>
 
-
-  <div class="actions">
-      <%= f.submit "Enregistrer" %>
-  </div>
-<% end %>

@@ -1,6 +1,6 @@
 <h1>Utilisateurs</h1>
 <ul class="uk-subnav uk-subnav-line uk-subnav-pill">
-    <%if  @all %>
+    <%if @all %>
     <li class="uk-active">
         <%= link_to "Tous les utilisateurs", :action => "index" %>
     </li>
@@ -9,7 +9,7 @@
         <%= link_to "Tous les utilisateurs", :action => "index" %>
     </li>
     <%end%>
-    <%if  @all %>
+    <%if @all %>
     <li>
         <%= link_to "Utilisateurs non validés", :action => "index", :approved => "false" %>
     </li>

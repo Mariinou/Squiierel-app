@@ -150,6 +150,8 @@
 <p><%= link_to '<i class="fa fa-plus fa-fw fa-inverse"></i>&nbsp;Nouvelle annonce'.html_safe, new_annonce_path, class: "uk-button uk-button-primary" %></p>
 <%end%>
 <%if admin?%>
+<%if @annoncesinvalides.blank?%>
+<%else%>
 <h2>Annonces non validées</h2>
 <table class="uk-table uk-table-hover uk-table-striped">
     <thead>
@@ -223,5 +225,6 @@
         <%end%>
     </tbody>
 </table>
+<%end%>
 <%end%>
 <!-- Fin de l'affichage des annonces !-->

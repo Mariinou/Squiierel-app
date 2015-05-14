@@ -22,6 +22,13 @@
         <%= f.text_field :duree, placeholder: "Durée",class:"uk-width-1-6" %>
         <br />
         <br />
+        <%if admin?%>
+        <%= f.label :Valider,class:"uk-width-1-6" %>
+        <br />
+        <%= f.check_box :validee %>
+        <br />
+        <br />
+        <%end%>
         <%= f.text_area :description, placeholder: "Description",:size => "89x10" %>
 
         <br />

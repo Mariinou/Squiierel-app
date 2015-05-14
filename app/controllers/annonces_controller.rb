@@ -83,7 +83,7 @@ class AnnoncesController < ApplicationController
         @annonce = Annonce.find(params[:id])
         if @annonce.update_attributes(annonce_params)
             flash[:notice] = 'Mise à jour de l\' annonce effectuée avec succès'
-            redirect_to admin_path
+            redirect_to home_path
         else
             render :action => 'edit'
         end
@@ -99,7 +99,7 @@ class AnnoncesController < ApplicationController
     private
 
     def annonce_params
-        params.require(:annonce).permit(:entreprise, :titre, :description, :duree, :datedebut, :moyencontact, :genre)
+        params.require(:annonce).permit(:entreprise, :titre, :description, :duree, :datedebut, :moyencontact, :genre, :validee)
     end
 
 end
