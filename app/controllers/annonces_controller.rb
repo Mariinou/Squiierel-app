@@ -4,7 +4,16 @@ class AnnoncesController < ApplicationController
     before_filter :authorize, :except => [:index,:show]
 
     def index
-        @annonces = Annonce.all
+        if params[:type] == "stage"
+            @annonces = Annonce.where(genre:'Stage')
+            @type="stage"
+        elsif params[:type] == "alternance"
+            @annonces = Annonce.where(genre:'Alternance')
+            @type="alternance"
+        else
+            @annonces = Annonce.all
+            @type="all"
+        end
     end
 
     def admin

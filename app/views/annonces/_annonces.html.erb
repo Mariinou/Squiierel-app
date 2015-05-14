@@ -1,9 +1,15 @@
 <!-- Début de l'affichage des annonces !-->
 <br>
-<h3>Trier par</h3>
+<h3>Trier par type :</h3>
 <ul class="uk-subnav uk-subnav-line uk-subnav-pill">
     <li class="uk-active">
-        <a href="">...</a>
+        <%= link_to "Tout", :action => "index" %>
+    </li>
+    <li>
+        <%= link_to "Stage", :action => "index", :type => "stage" %>
+    </li>
+    <li>
+        <%= link_to "Alternance", :action => "index", :type => "alternance" %>
     </li>
 </ul>
 <br>
