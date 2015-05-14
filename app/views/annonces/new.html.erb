@@ -1,19 +1,38 @@
-<h2>Nouvelle annonce</h2>
+<div class="uk-grid">
+    <div class="uk-width-2-3">
+        <br />
+        <h2>Nouvelle annonce</h2>
 
-<%= form_for @annonce do |f| %>
+        <%= form_for @annonce , html: { class:"uk-form" } do |f| %>
+        <%= f.text_field :entreprise, placeholder: "Entreprise",class:"uk-width-1-4" %>
+        <%= f.text_field :titre, placeholder: "Titre",class:"uk-width-2-4" %>
+        <br />
+        <br />
+        <%= f.text_field :genre, placeholder: "Type",class:"uk-width-2-6" %>
+        <%= f.text_field :moyencontact, placeholder: "Moyen de contact",class:"uk-width-2-6"%>
+        <br />
+        <br />
+        <%= f.label :Date_de_début,class:"uk-width-1-6" %>
+        <br />
+        <%= f.date_field :datedebut, placeholder: "Date de début",class:"uk-width-1-6" %>
+         <%= f.text_field :duree, placeholder: "Durée",class:"uk-width-1-6" %>
+        <br />
+        <br />
+        <%= f.text_area :description, placeholder: "Description",:size => "89x10" %>
 
-<div class="login">
-    <%= f.text_field :entreprise, placeholder: "Entreprise" %>
-    <%= f.text_field :titre, placeholder: "Titre" %>
-    <%= f.text_field :description, placeholder: "Description" %>
-    <%= f.text_field :duree, placeholder: "Durée" %>
-    <%= f.label :Date_de_début %>
-    <%= f.date_field :datedebut, placeholder: "Date de début" %>
-    <%= f.text_field :moyencontact, placeholder: "Moyen de contact" %>
-    <%= f.text_field :genre, placeholder: "Type" %>
+        <br />
+        <br />
 
-  <div class="actions">
-      <%= f.submit "Enregistrer",class: "btn btn-primary btn-block btn-large" %>
-  </div>
+        <div class="actions uk-text-contrast">
+            <br />
+            <%= f.submit "Enregistrer",class: "uk-button uk-button-primary uk-button-large" %>
+            <% end %>
+        </div>
+    </div>
+    <div class="uk-width-1-3">
+        <br />
+        <br />
+        <br />
+        <%= link_to "Retour", :back, class:"uk-button" %>
+    </div>
 </div>
-<% end %>

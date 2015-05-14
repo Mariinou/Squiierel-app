@@ -64,7 +64,7 @@
             <td><%= annonce.entreprise %></td>
             <td><%= annonce.titre %></td>
             <td class="uk-hidden-small uk-hidden-medium">
-                <%= annonce.description %>
+                <%=truncate(annonce.description,length: 25)  %>
             </td>
             <td><%= annonce.duree %></td>
             <td class="uk-hidden-small uk-hidden-medium">

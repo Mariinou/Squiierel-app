@@ -3,7 +3,7 @@
 <% if admin? %><!-- Si lutilisateur est un admin !-->
 
 <nav class="uk-navbar uk-container-center">
-    <%= link_to '#', home_path, class: "uk-navbar-brand uk-hidden-small" %>
+    <%= link_to '', home_path, class: "uk-navbar-brand uk-hidden-small" %>
     <ul class="uk-navbar-nav uk-hidden-small">
         <% if current_page?(home_path) %>
         <li class="uk-active">
@@ -39,7 +39,7 @@
 <%else%><!-- Si l'utilisateur est un élève !-->
 
 <nav class="uk-navbar uk-container-center">
-    <%= link_to '#', home_path, class: "uk-navbar-brand uk-hidden-small" %>
+    <%= link_to '', home_path, class: "uk-navbar-brand uk-hidden-small" %>
     <ul class="uk-navbar-nav uk-hidden-small">
         <% if current_page?(home_path) %>
         <li class="uk-active">
