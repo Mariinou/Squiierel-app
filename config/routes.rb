@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
     get 'administrateurs/new_user' => 'administrateurs#new_user', as: 'admins_new_user'
     get 'administrateurs/edit_user/:id' => 'administrateurs#edit_user', as: 'admins_edit_user'
-
+    get 'administrateurs/users/delete/:id' => 'administrateurs#delete', as: 'delete_user'
     get 'administrateurs/users' => 'administrateurs#index', as: 'users_index'
     # Example resource route with options:
     #   resources :products do
