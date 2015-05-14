@@ -4,15 +4,52 @@ class AnnoncesController < ApplicationController
     before_filter :authorize, :except => [:index,:show,:create,:new]
 
     def index
-        if params[:type] == "stage"
-            @annonces = Annonce.where(genre:'Stage')
-            @type="stage"
-        elsif params[:type] == "alternance"
-            @annonces = Annonce.where(genre:'Alternance')
-            @type="alternance"
+        if params[:etat] == "true"
+            @etat="true"
+            if params[:type] == "stage"
+                @annonces = Annonce.where(genre:'Stage',etat:true,validee:true)
+                @annoncesinvalides = Annonce.where(genre:'Stage',etat:true,validee:false)
+                @type="stage"
+            elsif params[:type] == "alternance"
+                @annonces = Annonce.where(genre:'Alternance',etat:true,validee:true)
+                @annoncesinvalides = Annonce.where(genre:'Alternance',etat:true,validee:false)
+                @type="alternance"
+            else
+                @annonces = Annonce.where(etat:true,validee:true)
+                @annoncesinvalides = Annonce.where(etat:true,validee:false)
+                @type="all"
+            end
+
+        elsif params[:etat] == "false"
+            @etat="false"
+            if params[:type] == "stage"
+                @annonces = Annonce.where(genre:'Stage',etat:false,validee:true)
+                @annoncesinvalides = Annonce.where(genre:'Stage',etat:false,validee:false)
+                @type="stage"
+            elsif params[:type] == "alternance"
+                @annonces = Annonce.where(genre:'Alternance',etat:false,validee:true)
+                @annoncesinvalides = Annonce.where(genre:'Alternance',etat:false,validee:false)
+                @type="alternance"
+            else
+                @annonces = Annonce.where(etat:false,validee:true)
+                @annoncesinvalides = Annonce.where(etat:false,validee:false)
+                @type="all"
+            end
         else
-            @annonces = Annonce.all
-            @type="all"
+            @etat="all"
+            if params[:type] == "stage"
+                @annonces = Annonce.where(genre:'Stage',validee:true)
+                @annoncesinvalides = Annonce.where(genre:'Stage',validee:false)
+                @type="stage"
+            elsif params[:type] == "alternance"
+                @annonces = Annonce.where(genre:'Alternance',validee:true)
+                @annoncesinvalides = Annonce.where(genre:'Alternance',validee:false)
+                @type="alternance"
+            else
+                @annonces = Annonce.where(validee:true)
+                @annoncesinvalides = Annonce.where(validee:false)
+                @type="all"
+            end
         end
     end
 

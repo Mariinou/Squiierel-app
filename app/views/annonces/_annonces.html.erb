@@ -1,39 +1,79 @@
 <!-- Début de l'affichage des annonces !-->
 <br>
-<h3>Trier par type :</h3>
-<ul class="uk-subnav uk-subnav-line uk-subnav-pill">
-    <%if @type == "stage"%>
-    <li>
-        <%= link_to "Tout", :action => "index" %>
-    </li>
-    <li class="uk-active">
-        <%= link_to "Stage", :action => "index", :type => "stage" %>
-    </li>
-    <li>
-        <%= link_to "Alternance", :action => "index", :type => "alternance" %>
-    </li>
-    <%elsif @type == "alternance"%>
-    <li>
-        <%= link_to "Tout", :action => "index" %>
-    </li>
-    <li>
-        <%= link_to "Stage", :action => "index", :type => "stage" %>
-    </li>
-    <li class="uk-active">
-        <%= link_to "Alternance", :action => "index", :type => "alternance" %>
-    </li>
-    <%else%>
-    <li class="uk-active">
-        <%= link_to "Tout", :action => "index" %>
-    </li>
-    <li>
-        <%= link_to "Stage", :action => "index", :type => "stage" %>
-    </li>
-    <li>
-        <%= link_to "Alternance", :action => "index", :type => "alternance" %>
-    </li>
-    <%end%>
-</ul>
+<div class="uk-grid">
+    <div class="uk-width-1-3">
+        <h3>Trier par type :</h3>
+        <ul class="uk-subnav uk-subnav-line uk-subnav-pill">
+            <%if @type == "stage"%>
+            <li>
+                <%= link_to "Tout", :action => "index", :etat => @etat %>
+            </li>
+            <li class="uk-active">
+                <%= link_to "Stage", :action => "index", :type => "stage", :etat => @etat %>
+            </li>
+            <li>
+                <%= link_to "Alternance", :action => "index", :type => "alternance", :etat => @etat %>
+            </li>
+            <%elsif @type == "alternance"%>
+            <li>
+                <%= link_to "Tout", :action => "index", :etat => @etat %>
+            </li>
+            <li>
+                <%= link_to "Stage", :action => "index", :type => "stage", :etat => @etat %>
+            </li>
+            <li class="uk-active">
+                <%= link_to "Alternance", :action => "index", :type => "alternance", :etat => @etat %>
+            </li>
+            <%else%>
+            <li class="uk-active">
+                <%= link_to "Tout", :action => "index", :etat => @etat %>
+            </li>
+            <li>
+                <%= link_to "Stage", :action => "index", :type => "stage", :etat => @etat %>
+            </li>
+            <li>
+                <%= link_to "Alternance", :action => "index", :type => "alternance", :etat => @etat %>
+            </li>
+            <%end%>
+        </ul>
+    </div>
+    <div class="uk-width-1-3">
+        <h3>Etat :</h3>
+        <ul class="uk-subnav uk-subnav-line uk-subnav-pill">
+            <%if @etat == "true"%>
+            <li>
+                <%= link_to "Tout", :action => "index", :type => @type %>
+            </li>
+            <li class="uk-active">
+                <%= link_to "Disponible", :action => "index", :etat => "true", :type => @type %>
+            </li>
+            <li>
+                <%= link_to "Pourvu", :action => "index", :etat => "false", :type => @type %>
+            </li>
+            <%elsif @etat == "false"%>
+            <li>
+                <%= link_to "Tout", :action => "index", :type => @type %>
+            </li>
+            <li>
+                <%= link_to "Disponible", :action => "index", :etat => "true", :type => @type %>
+            </li>
+            <li class="uk-active">
+                <%= link_to "Pourvu", :action => "index", :etat => "false", :type => @type %>
+            </li>
+            <%else%>
+            <li class="uk-active">
+                <%= link_to "Tout", :action => "index" %>
+            </li>
+            <li>
+                <%= link_to "Disponible", :action => "index", :etat => "true", :type => @type %>
+            </li>
+            <li>
+                <%= link_to "Pourvu", :action => "index", :etat => "false", :type => @type %>
+            </li>
+            <%end%>
+        </ul>
+    </div>
+</div>
 <table class="uk-table uk-table-hover uk-table-striped">
     <thead>
         <tr class="uk-text-primary uk-table-middle">
@@ -108,5 +148,80 @@
 </table>
 <%if admin?%>
 <p><%= link_to '<i class="fa fa-plus fa-fw fa-inverse"></i>&nbsp;Nouvelle annonce'.html_safe, new_annonce_path, class: "uk-button uk-button-primary" %></p>
+<%end%>
+<%if admin?%>
+<h2>Annonces non validées</h2>
+<table class="uk-table uk-table-hover uk-table-striped">
+    <thead>
+        <tr class="uk-text-primary uk-table-middle">
+            <th>Entreprise</th>
+            <th>Titre</th>
+            <th class="uk-hidden-small uk-hidden-medium">Description</th>
+            <th>Durée</th>
+            <th class="uk-hidden-small uk-hidden-medium" >Date de début</th>
+            <th class="uk-hidden-small" >Etat</th>
+            <th  class="uk-hidden-small uk-hidden-medium" >Crée le</th>
+            <th>Type</th>
+            <th>Ouvrir</th>
+            <%if admin?%>
+            <th class="uk-hidden-small">
+                <i class="fa fa-minus fa-fw"></i>
+                &nbsp;Supprimer
+            </th>
+            <th class="uk-hidden-small">
+                <i class="fa fa-pencil fa-fw"></i>
+                &nbsp;Editer
+            </th>
+            <%end%>
+        </tr>
+    </thead>
+    <tbody>
+        <% for annonceinvalide in @annoncesinvalides %>
+        <tr class="uk-table-middle">
+            <td><%= annonceinvalide.entreprise %></td>
+            <td><%= annonceinvalide.titre %></td>
+            <td class="uk-hidden-small uk-hidden-medium">
+                <%=truncate(annonceinvalide.description,length: 25)  %>
+            </td>
+            <td><%= annonceinvalide.duree %></td>
+            <td class="uk-hidden-small uk-hidden-medium">
+                <%= annonceinvalide.datedebut %>
+            </td>
+            <td class="uk-hidden-small">
+                <% if annonceinvalide.etat? %>
+                Disponible
+                <%else%>
+                Pourvue
+                <%end%>
+            </td>
+            <td class="uk-hidden-small uk-hidden-medium uk-hidden-medium">
+                <%= annonceinvalide.created_at.to_date %>
+            </td>
+            <td><%= annonceinvalide.genre %></td>
+            <td>
+                <%= link_to 'Ouvrir', show_annonce_path(annonceinvalide), class: "uk-button" %>
+            </td>
+            <%if admin?%>
+            <td class="uk-hidden-small" >
+                <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonceinvalide), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+            </td>
+            <td class="uk-hidden-small">
+                <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonceinvalide), class: "uk-button" %>
+            </td>
+            <%end%>
+        </tr>
+        <tr class="uk-text-primary uk-table-middle uk-hidden-large uk-hidden-medium" >
+            <%if admin?%>
+            <td>
+                <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonceinvalide), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+            </td>
+            <td>
+                <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonceinvalide), class: "uk-button" %>
+            </td>
+            <%end%>
+        </tr>
+        <%end%>
+    </tbody>
+</table>
 <%end%>
 <!-- Fin de l'affichage des annonces !-->
