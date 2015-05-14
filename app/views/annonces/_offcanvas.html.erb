@@ -1,0 +1,78 @@
+<%if user_signed_in? %><!--Si l'utilisateur est connecté!-->
+
+<% if admin? %><!-- Si lutilisateur est un admin !-->
+
+<div id="offcanvas" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-offcanvas">
+            <% if current_page?(home_path) %>
+            <li class="uk-active">
+                <%= link_to 'Annonces', home_path %>
+            </li>
+            <% else %>
+            <li>
+                <%= link_to 'Annonces', home_path %>
+            </li>
+            <%end%>
+
+            <% if current_page?(users_index_path) %>
+            <li class="uk-active">
+                <%= link_to 'Utilisateurs', users_index_path %>
+            </li>
+            <% else %>
+            <li>
+                <%= link_to 'Utilisateurs', users_index_path %>
+            </li>
+            <%end%>
+            <li>
+                <%= link_to('<i class="fa fa-power-off fa-inverse"></i>&nbsp;Déconnecter'.html_safe, destroy_user_session_path, :method => :delete, class:"logout", title:"Déconnecter") %>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<%else%><!-- Si l'utilisateur est un élève !-->
+
+<div id="offcanvas" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-offcanvas">
+            <% if current_page?(home_path) %>
+            <li class="uk-active">
+                <%= link_to 'Annonces', home_path %>
+            </li>
+            <% else %>
+            <li>
+                <%= link_to 'Annonces', home_path %>
+            </li>
+            <%end%>
+
+            <% if current_page?(users_index_path) %>
+            <li class="uk-active">
+                <%= link_to 'Mon Compte', home_path %>
+            </li>
+            <% else %>
+            <li>
+                <%= link_to 'Mon Compte', home_path %>
+            </li>
+            <%end%>
+
+            <% if current_page?(users_index_path) %>
+            <li class="uk-active">
+                <%= link_to 'Proposer une annonce', home_path %>
+            </li>
+            <% else %>
+            <li>
+                <%= link_to 'Proposer une annonce', home_path %>
+            </li>
+            <%end%>
+            <li>
+                <%= link_to('<i class="fa fa-power-off fa-inverse"></i>&nbsp;Déconnecter'.html_safe, destroy_user_session_path, :method => :delete, class:"logout", title:"Déconnecter") %>
+            </li>
+        </ul>
+    </div>
+</div>
+<%end%>
+
+<%else%><!--Si l'utilisateur n'est pas connecté!-->
+
+<%end%>

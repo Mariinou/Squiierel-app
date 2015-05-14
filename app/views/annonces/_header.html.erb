@@ -1,42 +1,97 @@
-<!--
-A faire :
--Menu
--design
-
-Idée de design : Marque page ruban vertical avec un écureuil simplifié blanc dedans.
-Puis Affichage de liens selon les prviligèges de l'utilisateur en ligne
-
--TypeQuest font effects avec calendasplus font pour faire un effet "lyrique"
-
+<!-- A faire :
+-corriger les urls
 !-->
+
 <%if user_signed_in? %><!--Si l'utilisateur est connecté!-->
-    <% if admin? %><!-- Si lutilisateur est un admin !-->
-    <div class="row top">
-    <%= image_tag "logo.png", class:"logo" %>
+
+<% if admin? %><!-- Si lutilisateur est un admin !-->
+
+<nav class="uk-navbar uk-container-center">
+    <%= link_to '#', home_path, class: "uk-navbar-brand uk-hidden-small" %>
+    <ul class="uk-navbar-nav uk-hidden-small">
+        <% if current_page?(home_path) %>
+        <li class="uk-active">
+            <%= link_to 'Annonces', home_path %>
+        </li>
+        <% else %>
+        <li>
+            <%= link_to 'Annonces', home_path %>
+        </li>
+        <%end%>
+
+        <% if current_page?(users_index_path) %>
+        <li class="uk-active">
+            <%= link_to 'Utilisateurs', users_index_path %>
+        </li>
+        <% else %>
+        <li>
+            <%= link_to 'Utilisateurs', users_index_path %>
+        </li>
+        <%end%>
+    </ul>
+    <div class="uk-navbar-flip uk-hidden-small">
+        <ul class="uk-navbar-nav uk-hidden-small">
+            <li>
+                <%= link_to('<i class="fa fa-power-off"></i>&nbsp;Déconnecter'.html_safe, destroy_user_session_path, :method => :delete, class:"logout", title:"Déconnecter") %>
+            </li>
+        </ul>
     </div>
-    <div class="row margin"></div>
-    <div class="dockedtitle">
-    <p>Squiierrel</p>
+    <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
+    <div class="uk-navbar-brand uk-navbar-center uk-visible-small">Squiierrel</div>
+</nav>
+
+<%else%><!-- Si l'utilisateur est un élève !-->
+
+<nav class="uk-navbar uk-container-center">
+    <%= link_to '#', home_path, class: "uk-navbar-brand uk-hidden-small" %>
+    <ul class="uk-navbar-nav uk-hidden-small">
+        <% if current_page?(home_path) %>
+        <li class="uk-active">
+            <%= link_to 'Annonces', home_path %>
+        </li>
+        <% else %>
+        <li>
+            <%= link_to 'Annonces', home_path %>
+        </li>
+        <%end%>
+
+        <% if current_page?(users_index_path) %>
+        <li class="uk-active">
+            <%= link_to 'Mon Compte', home_path %>
+        </li>
+        <% else %>
+        <li>
+            <%= link_to 'Mon Compte', home_path %>
+        </li>
+        <%end%>
+
+        <% if current_page?(users_index_path) %>
+        <li class="uk-active">
+            <%= link_to 'Proposer une annonce', home_path %>
+        </li>
+        <% else %>
+        <li>
+            <%= link_to 'Proposer une annonce', home_path %>
+        </li>
+        <%end%>
+    </ul>
+    <div class="uk-navbar-flip uk-hidden-small">
+        <ul class="uk-navbar-nav uk-hidden-small">
+            <li>
+                <%= link_to('<i class="fa fa-power-off"></i>&nbsp;Déconnecter'.html_safe, destroy_user_session_path, :method => :delete, class:"logout", title:"Déconnecter") %>
+            </li>
+        </ul>
     </div>
-    <div class="dockedtitle2">
-    <p>Donnez de la puissance à vos stages</p>
-    </div>
-    <%= link_to('<i class="fa fa-power-off fa-2x"></i>'.html_safe, destroy_user_session_path, :method => :delete, class:"logout", title:"Déconnecter") %>
-    <%else%><!-- Si l'utilisateur est un élève !-->
-    <div class="row top">
-    <%= image_tag "logo.png", class:"logo" %>
-    </div>
-    <div class="row margin"></div>
-    <div class="dockedtitle">
-    <p>Squiierrel</p>
-    </div>
-    <div class="dockedtitle2">
-    <p>Donnez de la puissance à vos stages</p>
-    </div>
-    <%= link_to('<i class="fa fa-power-off fa-2x"></i>'.html_safe, destroy_user_session_path, :method => :delete, class:"logout", title:"Déconnecter") %>
-    <%end%>
+    <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
+    <div class="uk-navbar-brand uk-navbar-center uk-visible-small">Squiierrel</div>
+</nav>
+
+<%end%>
+
 <%else%><!--Si l'utilisateur n'est pas connecté!-->
+
 <h1>Squiierrel</h1>
 <h2>Donnez de la puissance à vos stages</h2>
+
 <%end%>
 

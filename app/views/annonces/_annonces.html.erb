@@ -1,75 +1,77 @@
- <!-- Début de l'affichage des annonces !-->
-        <div class="row">
-            <div class="col-l-1 col-l-push-1 col-m-1 col-s-2">
-                Entreprise
-            </div>
-            <div class="col-l-1 col-l-push-1 col-m-2 col-s-4 col-s-push-1">
-                Titre
-            </div>
-            <div class="col-l-2 col-l-push-1 col-m-4 col-m-push-1 l-show m-show s-hidden">
-                Description
-            </div>
-            <div class="col-l-1 col-l-push-1 col-m-1 col-m-push-2 col-s-2 col-s-push-1">
-                Durée
-            </div>
-            <div class="col-l-2 col-l-push-1 l-show m-hidden s-hidden">
-                Date de début
-            </div>
-            <div class="col-l-1 col-l-push-1 l-show m-hidden s-hidden">
-                Etat
-            </div>
-            <div class="col-l-1 col-l-push-1 l-show m-hidden s-hidden">
-                Crée le
-            </div>
-            <div class="col-l-1 col-l-push-1 col-m-1 col-m-push-2 col-s-2 col-s-push-1">
-                Type
-            </div>
-        </div>
+<!-- Début de l'affichage des annonces !-->
+<table class="uk-table uk-table-hover uk-table-striped">
+    <thead>
+        <tr class="uk-text-primary uk-table-middle">
+            <th>Entreprise</th>
+            <th>Titre</th>
+            <th class="uk-hidden-small uk-hidden-medium">Description</th>
+            <th>Durée</th>
+            <th class="uk-hidden-small uk-hidden-medium" >Date de début</th>
+            <th class="uk-hidden-small" >Etat</th>
+            <th  class="uk-hidden-small uk-hidden-medium" >Crée le</th>
+            <th>Type</th>
+            <th>Ouvrir</th>
+            <%if admin?%>
+            <th class="uk-hidden-small">
+                <i class="fa fa-minus fa-fw"></i>
+                &nbsp;Supprimer
+            </th>
+            <th class="uk-hidden-small">
+                <i class="fa fa-pencil fa-fw"></i>
+                &nbsp;Editer
+            </th>
+            <%end%>
+        </tr>
+    </thead>
+    <tbody>
         <% for annonce in @annonces %>
-        <div class="row">
-            <div class="col-l-1  col-l-push-1 col-m-1 col-s-2">
-                <%= annonce.entreprise %>
-            </div>
-            <div class="col-l-1 col-l-push-1 col-m-2 col-s-4 col-s-push-1">
-                <%= annonce.titre %>
-            </div>
-            <div class="col-l-2 col-l-push-1 col-m-4 col-m-push-1 l-show m-show s-hidden">
+        <tr class="uk-table-middle">
+            <td><%= annonce.entreprise %></td>
+            <td><%= annonce.titre %></td>
+            <td class="uk-hidden-small uk-hidden-medium">
                 <%= annonce.description %>
-            </div>
-            <div class="col-l-1 col-l-push-1 col-m-1 col-m-push-2 col-s-2 col-s-push-1">
-                <%= annonce.duree %>
-            </div>
-            <div class="col-l-2 col-l-push-1 l-show m-hidden s-hidden">
+            </td>
+            <td><%= annonce.duree %></td>
+            <td class="uk-hidden-small uk-hidden-medium">
                 <%= annonce.datedebut %>
-            </div>
-            <div class="col-l-1 col-l-push-1 l-show m-hidden s-hidden">
-
+            </td>
+            <td class="uk-hidden-small">
                 <% if annonce.etat? %>
-                disponible
+                Disponible
                 <%else%>
-                pourvue
+                Pourvue
                 <%end%>
-            </div>
-            <div class="col-l-1 col-l-push-1 l-show m-hidden s-hidden">
+            </td>
+            <td class="uk-hidden-small uk-hidden-medium uk-hidden-medium">
                 <%= annonce.created_at.to_date %>
-            </div>
-            <div class="col-l-1 col-l-push-1 col-m-1 col-m-push-2 col-s-2 col-s-push-1">
-                <%= annonce.genre %>
-            </div>
-            <div class="col-l-1 col-l-push-1 col-m-1 col-m-push-2 col-s-2 col-s-push-1">
-                <%= link_to 'Voir', show_annonce_path(annonce), class: "link" %>
-            </div>
-        </div>
+            </td>
+            <td><%= annonce.genre %></td>
+            <td>
+                <%= link_to 'Ouvrir', show_annonce_path(annonce), class: "uk-button" %>
+            </td>
+            <%if admin?%>
+            <td class="uk-hidden-small" >
+                <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonce), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+            </td>
+            <td class="uk-hidden-small">
+                <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonce), class: "uk-button" %>
+            </td>
+            <%end%>
+        </tr>
+        <tr class="uk-text-primary uk-table-middle uk-hidden-large uk-hidden-medium" >
         <%if admin?%>
-        <p>
-            <%= link_to '<i class="fa fa-minus fa-fw fa-inverse"></i>Supprimmer'.html_safe, annonce_path(annonce), :method => :delete, :confirm => 'êtes vous sûr ?', class: "link"%>
-        </p>
-        <p>
-            <%= link_to '<i class="fa fa-pencil fa-fw fa-inverse"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonce), class: "link" %>
-        </p>
+            <td>
+                <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonce), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+            </td>
+            <td>
+                <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonce), class: "uk-button" %>
+            </td>
+            <%end%>
+        </tr>
         <%end%>
-        <% end %>
-        <%if admin?%>
-        <p><%= link_to '<i class="fa fa-plus fa-fw fa-inverse"></i>&nbsp;Nouvelle annonce'.html_safe, new_annonce_path, class: "link" %></p>
-        <%end%>
-        <!-- Fin de l'affichage des annonces !-->
+    </tbody>
+</table>
+<%if admin?%>
+<p><%= link_to '<i class="fa fa-plus fa-fw fa-inverse"></i>&nbsp;Nouvelle annonce'.html_safe, new_annonce_path, class: "uk-button uk-button-primary" %></p>
+<%end%>
+<!-- Fin de l'affichage des annonces !-->

@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Squiierrel</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <title>Squiierrel</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'uikit.min', 'jquery', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
 
-<%= yield %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-</body>
+    </head>
+    <body>
+        <div class="uk-container uk-container-center">
+            <!-- Header!-->
+            <%= render "annonces/header" %>
+            <!--Fin Header!-->
+            <%= yield %>
+            <%if notice.present?%>
+            <div class="notice uk-alert uk-alert-success">
+                <%= notice %>
+                <%= link_to '', class:"uk-close"%>
+            </div>
+            <%else%>
+            <%end%>
+            <%if alert.present?%>
+            <div class="alert uk-alert uk-alert-danger">
+                <%= alert %>
+                <%= link_to '', class:"uk-close"%>
+            </div>
+            <%else%>
+            <%end%>
+            <!-- Offcanvas!-->
+            <%= render "annonces/offcanvas" %>
+            <!--Fin Offcanvas!-->
+        </div>
+    </body>
 </html>

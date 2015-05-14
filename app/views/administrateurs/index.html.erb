@@ -1,17 +1,23 @@
-<!-- Header!-->
-<%= render "annonces/header" %>
-<!--Fin Header!-->
-
 <h1>Utilisateurs</h1>
-
 <%= link_to "Tous les utilisateurs", :action => "index" %>
-
+<br>
 <%= link_to "Utilisateurs non validés", :action => "index", :approved => "false" %>
 
-<%if @users.nil?%>
+<%if @users.blank?%>
 <h2>Aucun utilisateur non validé !</h2>
 <%else%>
-<table>
+<table class="uk-table uk-table-hover uk-table-striped">
+    <tr>
+        <th>
+            Email
+        </th>
+        <th>
+            Validé
+        </th>
+        <th>
+            Editer
+        </th>
+    </tr>
     <%for user in @users%>
     <tr>
         <td><%=user.email%> </td>
@@ -22,4 +28,4 @@
 </table>
 <%end%>
 
-<p><%= link_to "Ajouter un utilisateur", admins_new_user_path %></p>
+<p><%= link_to "Ajouter un utilisateur", admins_new_user_path, class:"uk-button uk-button-primary" %></p>
