@@ -5,8 +5,10 @@ class AdministrateursController < ApplicationController
     def index
         if params[:approved] == "false"
             @users = User.where(approved:false)
+            @all=false
         else
             @users = User.all
+            @all=true
         end
     end
 

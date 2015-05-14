@@ -1,7 +1,26 @@
 <h1>Utilisateurs</h1>
-<%= link_to "Tous les utilisateurs", :action => "index" %>
+<ul class="uk-subnav uk-subnav-line uk-subnav-pill">
+    <%if  @all %>
+    <li class="uk-active">
+        <%= link_to "Tous les utilisateurs", :action => "index" %>
+    </li>
+    <%else%>
+    <li>
+        <%= link_to "Tous les utilisateurs", :action => "index" %>
+    </li>
+    <%end%>
+    <%if  @all %>
+    <li>
+        <%= link_to "Utilisateurs non validés", :action => "index", :approved => "false" %>
+    </li>
+    <%else%>
+    <li class="uk-active">
+        <%= link_to "Utilisateurs non validés", :action => "index", :approved => "false" %>
+    </li>
+    <%end%>
+</ul>
 <br>
-<%= link_to "Utilisateurs non validés", :action => "index", :approved => "false" %>
+
 
 <%if @users.blank?%>
 <h2>Aucun utilisateur non validé !</h2>
