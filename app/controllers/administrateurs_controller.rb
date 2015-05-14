@@ -2,8 +2,20 @@ class AdministrateursController < ApplicationController
 
     before_filter :authorize
 
+    def index
+        if params[:approved] == "false"
+            @users = User.where(approved:false)
+        else
+            @users = User.all
+        end
+    end
+
     def new_user
         @user = User.new
+    end
+
+    def edit_user
+        @user = User.find(params[:id])
     end
 
     def create_user
@@ -20,6 +32,6 @@ class AdministrateursController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:nom, :prenom, :email, :promo, :numtel, :role, :password, :state)
+        params.require(:user).permit(:nom, :prenom, :email, :promo, :numtel, :role, :password, :approved)
     end
 end

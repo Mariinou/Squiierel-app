@@ -16,6 +16,7 @@ en:
       timeout: "Votre session à expirée. Veuillez vous reconnecter."
       unauthenticated: "Vous devez vous connecter avant de continuer."
       unconfirmed: "Vous devez confirmer votre email avant de continuer."
+      not_approved: "Votre compte n'as pas encore été validé par l'administration."
     mailer:
       confirmation_instructions:
         subject: "Instructions de confirmation"
@@ -39,6 +40,8 @@ en:
       signed_up_but_locked: "Identifiants corrects. Cependant vous ne pouvez pas vous connecter car votre compte est verrouillé."
       signed_up_but_unconfirmed: "Un email de confirmation vient de vous être envoyé."
       update_needs_confirmation: "Un email de confirmation vient de voue être envoyé."
+      user:
+        signed_up_but_not_approved: "Vous avez été enregistré avec succès mais votre compte n'as pas encore été validé par un administrateur."
     sessions:
       signed_in: "Connecté avec succès."
       signed_out: "Déconnection réussie."
