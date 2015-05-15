@@ -2,11 +2,16 @@
 
 <%= form_for @user do |f| %>
 
-<div class="login">
+<div>
     <%= f.text_field :nom, placeholder: "Nom" %>
     <%= f.text_field :prenom, placeholder: "Prénom" %>
     <%= f.email_field :email, placeholder: "Email" %>
     <%= f.text_field :password, placeholder: "Mot de passe" %>
+    <%= f.select(:type) do %>
+    <% [['Eleve', 'Eleve'],['Administrateur', 'Administrateur']].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+    <% end %>
+    <% end %>
     <%= f.number_field :promo, placeholder: "Promotion" %>
     <%= f.text_field :numtel, placeholder: "Numéro de Téléphone" %>
     <%= f.text_field :role, placeholder: "Rôle" %>
@@ -14,7 +19,7 @@
     <%= f.check_box :approved %>
 
     <div class="actions ">
-        <%= f.submit "Enregistrer",class: "btn btn-primary btn-block btn-large" %>
+        <%= f.submit "Enregistrer",class: "" %>
     </div>
 </div>
 <% end %>

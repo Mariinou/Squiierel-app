@@ -99,7 +99,7 @@ class AnnoncesController < ApplicationController
     private
 
     def annonce_params
-        params.require(:annonce).permit(:entreprise, :titre, :description, :duree, :datedebut, :moyencontact, :genre, :validee)
+        params.require(:annonce).permit(:entreprise, :titre, :description, :duree, :datedebut, :moyencontact, :genre, :validee, :etat)
     end
 
 end
