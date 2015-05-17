@@ -25,26 +25,30 @@
 <%if @users.blank?%>
 <h2>Aucun utilisateur non validé !</h2>
 <%else%>
-<table class="uk-table uk-table-hover uk-table-striped backwhite">
-    <tr>
-        <th>
-            Email
-        </th>
-        <th>
-            Validé
-        </th>
-        <th>
-            Editer
-        </th>
-    </tr>
-    <%for user in @users%>
-    <tr>
-        <td><%=user.email%> </td>
-        <td><%= user.approved%> </td>
-        <td><%= link_to "Editer", admins_edit_user_path(user)%></td>
-    </tr>
-    <%end%>
-</table>
+<div class="uk-grid">
+    <div class="uk-panel uk-panel-box uk-width-1-1 uk-container-center">
+        <table class="uk-table uk-table-hover uk-table-striped backwhite">
+            <tr>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Validé
+                </th>
+                <th>
+                    Editer
+                </th>
+            </tr>
+            <%for user in @users%>
+            <tr>
+                <td><%=user.email%> </td>
+                <td><%= user.approved%> </td>
+                <td><%= link_to "Editer", admins_edit_user_path(user)%></td>
+            </tr>
+            <%end%>
+        </table>
+    </div>
+</div>
 <%end%>
 
 <p><%= link_to "Ajouter un utilisateur", admins_new_user_path, class:"uk-button uk-button-primary" %></p>

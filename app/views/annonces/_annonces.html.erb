@@ -74,7 +74,10 @@
         </ul>
     </div>
 </div>
-<table class="uk-table uk-table-hover uk-table-striped backwhite">
+
+<div class="uk-grid">
+    <div class="uk-panel uk-panel-box uk-width-1-1 uk-container-center">
+        <table class="uk-table uk-table-hover uk-table-striped backwhite">
     <thead>
         <tr class="uk-text-primary uk-table-middle">
             <th>Entreprise</th>
@@ -146,6 +149,9 @@
         <%end%>
     </tbody>
 </table>
+    </div>
+</div>
+
 <%if admin?%>
 <p><%= link_to '<i class="fa fa-plus fa-fw fa-inverse"></i>&nbsp;Nouvelle annonce'.html_safe, new_annonce_path, class: "uk-button uk-button-primary" %></p>
 <%end%>
