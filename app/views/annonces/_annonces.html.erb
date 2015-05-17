@@ -75,80 +75,80 @@
     </div>
 </div>
 
-<div class="uk-grid">
-    <div class="uk-panel uk-panel-box uk-width-1-1 uk-container-center">
+<div class="uk-grid uk-container-center uk-width-1-1">
+    <div class="uk-panel uk-panel-box uk-width-1-1 uk-container-center uk-padding-none">
         <table class="uk-table uk-table-hover uk-table-striped backwhite">
-    <thead>
-        <tr class="uk-text-primary uk-table-middle">
-            <th>Entreprise</th>
-            <th>Titre</th>
-            <th class="uk-hidden-small uk-hidden-medium">Description</th>
-            <th>Durée</th>
-            <th class="uk-hidden-small uk-hidden-medium" >Date de début</th>
-            <th class="uk-hidden-small" >Etat</th>
-            <th  class="uk-hidden-small uk-hidden-medium" >Crée le</th>
-            <th>Type</th>
-            <th>Ouvrir</th>
-            <%if admin?%>
-            <th class="uk-hidden-small">
-                <i class="fa fa-minus fa-fw"></i>
-                &nbsp;Supprimer
-            </th>
-            <th class="uk-hidden-small">
-                <i class="fa fa-pencil fa-fw"></i>
-                &nbsp;Editer
-            </th>
-            <%end%>
-        </tr>
-    </thead>
-    <tbody>
-        <% for annonce in @annonces %>
-        <tr class="uk-table-middle">
-            <td><%= annonce.entreprise %></td>
-            <td><%= annonce.titre %></td>
-            <td class="uk-hidden-small uk-hidden-medium">
-                <%=truncate(annonce.description,length: 25)  %>
-            </td>
-            <td><%= annonce.duree %></td>
-            <td class="uk-hidden-small uk-hidden-medium">
-                <%= annonce.datedebut %>
-            </td>
-            <td class="uk-hidden-small">
-                <% if annonce.etat? %>
-                Disponible
-                <%else%>
-                Pourvue
+            <thead>
+                <tr class="uk-text-primary uk-table-middle">
+                    <th>Entreprise</th>
+                    <th>Titre</th>
+                    <th class="uk-hidden-small uk-hidden-medium">Description</th>
+                    <th>Durée</th>
+                    <th class="uk-hidden-small uk-hidden-medium" >Date de début</th>
+                    <th class="uk-hidden-small" >Etat</th>
+                    <th  class="uk-hidden-small uk-hidden-medium" >Crée le</th>
+                    <th>Type</th>
+                    <th>Ouvrir</th>
+                    <%if admin?%>
+                    <th class="uk-hidden-small">
+                        <i class="fa fa-minus fa-fw"></i>
+                        &nbsp;Supprimer
+                    </th>
+                    <th class="uk-hidden-small">
+                        <i class="fa fa-pencil fa-fw"></i>
+                        &nbsp;Editer
+                    </th>
+                    <%end%>
+                </tr>
+            </thead>
+            <tbody>
+                <% for annonce in @annonces %>
+                <tr class="uk-table-middle">
+                    <td><%= annonce.entreprise %></td>
+                    <td><%= annonce.titre %></td>
+                    <td class="uk-hidden-small uk-hidden-medium">
+                        <%=truncate(annonce.description,length: 25)  %>
+                    </td>
+                    <td><%= annonce.duree %></td>
+                    <td class="uk-hidden-small uk-hidden-medium">
+                        <%= annonce.datedebut %>
+                    </td>
+                    <td class="uk-hidden-small">
+                        <% if annonce.etat? %>
+                        Disponible
+                        <%else%>
+                        Pourvue
+                        <%end%>
+                    </td>
+                    <td class="uk-hidden-small uk-hidden-medium uk-hidden-medium">
+                        <%= annonce.created_at.to_date %>
+                    </td>
+                    <td><%= annonce.genre %></td>
+                    <td>
+                        <%= link_to 'Ouvrir', show_annonce_path(annonce), class: "uk-button" %>
+                    </td>
+                    <%if admin?%>
+                    <td class="uk-hidden-small" >
+                        <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonce), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+                    </td>
+                    <td class="uk-hidden-small">
+                        <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonce), class: "uk-button" %>
+                    </td>
+                    <%end%>
+                </tr>
+                <tr class="uk-text-primary uk-table-middle uk-hidden-large uk-hidden-medium" >
+                    <%if admin?%>
+                    <td>
+                        <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonce), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+                    </td>
+                    <td>
+                        <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonce), class: "uk-button" %>
+                    </td>
+                    <%end%>
+                </tr>
                 <%end%>
-            </td>
-            <td class="uk-hidden-small uk-hidden-medium uk-hidden-medium">
-                <%= annonce.created_at.to_date %>
-            </td>
-            <td><%= annonce.genre %></td>
-            <td>
-                <%= link_to 'Ouvrir', show_annonce_path(annonce), class: "uk-button" %>
-            </td>
-            <%if admin?%>
-            <td class="uk-hidden-small" >
-                <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonce), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
-            </td>
-            <td class="uk-hidden-small">
-                <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonce), class: "uk-button" %>
-            </td>
-            <%end%>
-        </tr>
-        <tr class="uk-text-primary uk-table-middle uk-hidden-large uk-hidden-medium" >
-            <%if admin?%>
-            <td>
-                <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonce), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
-            </td>
-            <td>
-                <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonce), class: "uk-button" %>
-            </td>
-            <%end%>
-        </tr>
-        <%end%>
-    </tbody>
-</table>
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -159,78 +159,82 @@
 <%if @annoncesinvalides.blank?%>
 <%else%>
 <h2>Annonces non validées</h2>
-<table class="uk-table uk-table-hover uk-table-striped backwhite">
-    <thead>
-        <tr class="uk-text-primary uk-table-middle">
-            <th>Entreprise</th>
-            <th>Titre</th>
-            <th class="uk-hidden-small uk-hidden-medium">Description</th>
-            <th>Durée</th>
-            <th class="uk-hidden-small uk-hidden-medium" >Date de début</th>
-            <th class="uk-hidden-small" >Etat</th>
-            <th  class="uk-hidden-small uk-hidden-medium" >Crée le</th>
-            <th>Type</th>
-            <th>Ouvrir</th>
-            <%if admin?%>
-            <th class="uk-hidden-small">
-                <i class="fa fa-minus fa-fw"></i>
-                &nbsp;Supprimer
-            </th>
-            <th class="uk-hidden-small">
-                <i class="fa fa-pencil fa-fw"></i>
-                &nbsp;Editer
-            </th>
-            <%end%>
-        </tr>
-    </thead>
-    <tbody>
-        <% for annonceinvalide in @annoncesinvalides %>
-        <tr class="uk-table-middle">
-            <td><%= annonceinvalide.entreprise %></td>
-            <td><%= annonceinvalide.titre %></td>
-            <td class="uk-hidden-small uk-hidden-medium">
-                <%=truncate(annonceinvalide.description,length: 25)  %>
-            </td>
-            <td><%= annonceinvalide.duree %></td>
-            <td class="uk-hidden-small uk-hidden-medium">
-                <%= annonceinvalide.datedebut %>
-            </td>
-            <td class="uk-hidden-small">
-                <% if annonceinvalide.etat? %>
-                Disponible
-                <%else%>
-                Pourvue
+<div class="uk-grid uk-container-center uk-width-1-1">
+    <div class="uk-panel uk-panel-box uk-width-1-1 uk-container-center uk-padding-none">
+        <table class="uk-table uk-table-hover uk-table-striped backwhite">
+            <thead>
+                <tr class="uk-text-primary uk-table-middle">
+                    <th>Entreprise</th>
+                    <th>Titre</th>
+                    <th class="uk-hidden-small uk-hidden-medium">Description</th>
+                    <th>Durée</th>
+                    <th class="uk-hidden-small uk-hidden-medium" >Date de début</th>
+                    <th class="uk-hidden-small" >Etat</th>
+                    <th  class="uk-hidden-small uk-hidden-medium" >Crée le</th>
+                    <th>Type</th>
+                    <th>Ouvrir</th>
+                    <%if admin?%>
+                    <th class="uk-hidden-small">
+                        <i class="fa fa-minus fa-fw"></i>
+                        &nbsp;Supprimer
+                    </th>
+                    <th class="uk-hidden-small">
+                        <i class="fa fa-pencil fa-fw"></i>
+                        &nbsp;Editer
+                    </th>
+                    <%end%>
+                </tr>
+            </thead>
+            <tbody>
+                <% for annonceinvalide in @annoncesinvalides %>
+                <tr class="uk-table-middle">
+                    <td><%= annonceinvalide.entreprise %></td>
+                    <td><%= annonceinvalide.titre %></td>
+                    <td class="uk-hidden-small uk-hidden-medium">
+                        <%=truncate(annonceinvalide.description,length: 25)  %>
+                    </td>
+                    <td><%= annonceinvalide.duree %></td>
+                    <td class="uk-hidden-small uk-hidden-medium">
+                        <%= annonceinvalide.datedebut %>
+                    </td>
+                    <td class="uk-hidden-small">
+                        <% if annonceinvalide.etat? %>
+                        Disponible
+                        <%else%>
+                        Pourvue
+                        <%end%>
+                    </td>
+                    <td class="uk-hidden-small uk-hidden-medium uk-hidden-medium">
+                        <%= annonceinvalide.created_at.to_date %>
+                    </td>
+                    <td><%= annonceinvalide.genre %></td>
+                    <td>
+                        <%= link_to 'Ouvrir', show_annonce_path(annonceinvalide), class: "uk-button" %>
+                    </td>
+                    <%if admin?%>
+                    <td class="uk-hidden-small" >
+                        <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonceinvalide), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+                    </td>
+                    <td class="uk-hidden-small">
+                        <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonceinvalide), class: "uk-button" %>
+                    </td>
+                    <%end%>
+                </tr>
+                <tr class="uk-text-primary uk-table-middle uk-hidden-large uk-hidden-medium" >
+                    <%if admin?%>
+                    <td>
+                        <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonceinvalide), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+                    </td>
+                    <td>
+                        <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonceinvalide), class: "uk-button" %>
+                    </td>
+                    <%end%>
+                </tr>
                 <%end%>
-            </td>
-            <td class="uk-hidden-small uk-hidden-medium uk-hidden-medium">
-                <%= annonceinvalide.created_at.to_date %>
-            </td>
-            <td><%= annonceinvalide.genre %></td>
-            <td>
-                <%= link_to 'Ouvrir', show_annonce_path(annonceinvalide), class: "uk-button" %>
-            </td>
-            <%if admin?%>
-            <td class="uk-hidden-small" >
-                <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonceinvalide), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
-            </td>
-            <td class="uk-hidden-small">
-                <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonceinvalide), class: "uk-button" %>
-            </td>
-            <%end%>
-        </tr>
-        <tr class="uk-text-primary uk-table-middle uk-hidden-large uk-hidden-medium" >
-            <%if admin?%>
-            <td>
-                <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonceinvalide), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
-            </td>
-            <td>
-                <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonceinvalide), class: "uk-button" %>
-            </td>
-            <%end%>
-        </tr>
-        <%end%>
-    </tbody>
-</table>
+            </tbody>
+        </table>
+    </div>
+</div>
 <%end%>
 <%end%>
 <!-- Fin de l'affichage des annonces !-->

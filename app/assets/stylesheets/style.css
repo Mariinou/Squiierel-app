@@ -157,5 +157,7 @@
 }
 
 .title{
-    font-family: allura, cursive;
+    font-family: lobster-two, cursive;
+    font-weight: bold;
+    font-size: 100px;
 }
