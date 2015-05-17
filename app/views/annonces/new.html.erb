@@ -23,21 +23,25 @@
         <br />
         <br />
         <%if admin?%>
-        <%= f.label :Valider,class:"uk-width-1-6" %>
-        <br />
-        <%= f.check_box :validee %>
-        <br />
-        <%= f.label :Disponible,class:"uk-width-1-6" %>
-        <br />
-        <%= f.check_box :etat %>
-        <br />
+        <div class="uk-grid">
+            <div classs="uk-width-1-4">
+                        
+            </div>
+            <div class="uk-width-1-6">
+                <%= f.label :Valider,class:"uk-width-1-6" %>
+                <br />
+                 <%= f.check_box :validee %>
+            </div>
+            <div class="uk-width-1-6">
+                <%= f.label :Disponible,class:"uk-width-1-6" %>
+                <br />
+                  <%= f.check_box :etat %>
+            </div>
+        </div>
         <br />
         <%end%>
         <%= f.text_area :description, placeholder: "Description",:size => "89x10" %>
-
         <br />
-        <br />
-
         <div class="actions uk-text-contrast">
             <br />
             <%= f.submit "Enregistrer",class: "uk-button uk-button-primary uk-button-large" %>

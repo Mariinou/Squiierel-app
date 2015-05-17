@@ -28,7 +28,6 @@ class AdministrateursController < ApplicationController
         else
             render :action => 'new_user'
         end
-
     end
 
     private

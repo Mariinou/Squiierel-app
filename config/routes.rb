@@ -16,17 +16,19 @@ Rails.application.routes.draw do
     #   resources :products
     root 'annonces#index', :as => :home
     get '/admin' => 'annonces#admin', :as => :admin
-
     get '/annonces/new' => 'annonces#new', :as => :new_annonce
     get '/annonces/edit/:id' => 'annonces#edit', :as => :edit_annonce
     get '/annonces/show/:id' => 'annonces#show', :as => :show_annonce
 
     resources :annonces
-    resources :users
 
     get 'administrateurs/new_user' => 'administrateurs#new_user', as: 'admins_new_user'
     get 'administrateurs/edit_user/:id' => 'administrateurs#edit_user', as: 'admins_edit_user'
     get 'administrateurs/users' => 'administrateurs#index', as: 'users_index'
+
+    resources :users
+
+
     # Example resource route with options:
     #   resources :products do
     #     member do

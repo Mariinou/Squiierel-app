@@ -1,34 +1,39 @@
+<br />
 <div class="uk-grid">
     <div class="uk-width-1-2">
         <h1 class="uk-text-primary"><%= @annonce.titre%></h1>
     </div>
-    <div class="uk-width-1-2">
+    <div class="uk-width-1-4">
         <%= link_to 'Retour', home_path, class: "uk-button" %>
     </div>
     <div class="uk-grid">
         <div class="uk-width-1-2">
             <br />
+            <%= link_to :action => "index", :entreprise => @annonce.entreprise , :type => @type, :etat => @etat  do %>
             <%= @annonce.entreprise %>
+            <%end%>
         </div>
         <div class="uk-width-1-2"></div>
-        <div class="uk-width-1-2">
+        <div class="uk-width-1-4">
             Date de début : <%= @annonce.datedebut %>
         </div>
-        <div class="uk-width-1-2">
+        <div class="uk-width-1-4">
             Durée : <%= @annonce.duree %>
         </div>
-        <div class="uk-width-1-2">
+        <div class="uk-width-1-2"></div>
+
+        <div class="uk-width-1-4">
             Moyen de Contact : <%= @annonce.moyencontact %>
         </div>
-        <div class="uk-width-1-2">
+        <div class="uk-width-1-4">
             Type : <%= @annonce.genre %>
         </div>
-    </div>
-    <div class="uk-grid">
-        <div class="uk-vertical-align uk-panel uk-panel-box uk-width-2-3 uk-container-center" style="height: 200px;">
-            <div class="uk-vertical-align-middle">
-                <p><%= @annonce.description %></p>
-            </div>
+        <div class="uk-width-1-2"></div>
+
+        <br />
+        <br />
+        <div class="uk-panel uk-panel-box uk-width-1-2" style="margin-left:30px; height: 200px;">
+            <p><%= @annonce.description %></p>
         </div>
     </div>
 </div>
