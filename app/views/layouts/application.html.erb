@@ -14,16 +14,19 @@
             <!--Fin Header!-->
             <%= yield %>
             <%if notice.present?%>
-            <div class="notice uk-alert uk-alert-success">
+            <div class="notice uk-alert uk-alert-success wide uk-animation-fade uk-animation-reverse uk-animation-5">
                 <%= notice %>
-                <%= link_to '', class:"uk-close"%>
+                <%= link_to ' ', class:"uk-close" do%>
+                <%end%>
             </div>
             <%else%>
             <%end%>
             <%if alert.present?%>
-            <div class="alert uk-alert uk-alert-danger">
+
+            <div class="alert uk-alert uk-alert-danger wide uk-animation-fade uk-animation-reverse uk-animation-5">
                 <%= alert %>
-                <%= link_to '', class:"uk-close"%>
+                <%= link_to ' ', class:"uk-close" do%>
+                <%end%>
             </div>
             <%else%>
             <%end%>

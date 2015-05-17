@@ -161,3 +161,10 @@
     font-weight: bold;
     font-size: 100px;
 }
+
+.wide{
+    width: auto;
+    position: absolute;
+    z-index: 10;
+    top:10%;
+}

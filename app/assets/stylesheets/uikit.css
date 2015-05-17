@@ -4846,6 +4846,18 @@ a.uk-thumbnail:focus {
   -webkit-animation-duration: 15s;
   animation-duration: 15s;
 }
+.uk-animation-5 {
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+}
+.uk-animation-10 {
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+}
+.uk-animation-20 {
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+}
 .uk-animation-top-left {
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
@@ -6594,7 +6606,7 @@ a.uk-thumbnail:focus {
   vertical-align: middle;
   -webkit-appearance: none;
   outline: 0;
-  background: transparent;
+  background-color:#ffffff;
 }
 .uk-form input[type="radio"] {
   border-radius: 50%;
