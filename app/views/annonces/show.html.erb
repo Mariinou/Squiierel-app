@@ -1,10 +1,34 @@
-<h2><%= @annonce.titre%></h2>
-
-<%= @annonce.entreprise %>
-<%= @annonce.description %>
-<%= @annonce.duree %>
-<%= @annonce.datedebut %>
-<%= @annonce.moyencontact %>
-<%= @annonce.genre %>
-
-<%= link_to 'Retour', home_path, class: "link" %>
+<div class="uk-grid">
+    <div class="uk-width-1-2">
+        <h1 class="uk-text-primary"><%= @annonce.titre%></h1>
+    </div>
+    <div class="uk-width-1-2">
+        <%= link_to 'Retour', home_path, class: "uk-button" %>
+    </div>
+    <div class="uk-grid">
+        <div class="uk-width-1-2">
+            <br />
+            <%= @annonce.entreprise %>
+        </div>
+        <div class="uk-width-1-2"></div>
+        <div class="uk-width-1-2">
+            Date de début : <%= @annonce.datedebut %>
+        </div>
+        <div class="uk-width-1-2">
+            Durée : <%= @annonce.duree %>
+        </div>
+        <div class="uk-width-1-2">
+            Moyen de Contact : <%= @annonce.moyencontact %>
+        </div>
+        <div class="uk-width-1-2">
+            Type : <%= @annonce.genre %>
+        </div>
+    </div>
+    <div class="uk-grid">
+        <div class="uk-vertical-align uk-panel uk-panel-box uk-width-2-3 uk-container-center" style="height: 200px;">
+            <div class="uk-vertical-align-middle">
+                <p><%= @annonce.description %></p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,10 +2,9 @@ html {
   font: normal 14px / 20px "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  background: #ffffff;
   color: #444444;
-  background-image: -webkit-radial-gradient(100% 100%, center, #ffffff, #ffffff);
-  background-image: radial-gradient(100% 100% at center, #ffffff, #ffffff);
+  background: url(pattern.svg);
+  background-size: cover;
 }
 
 }body {

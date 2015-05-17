@@ -150,3 +150,7 @@
     z-index: +1;
     top:-60px;
 }
+
+.backwhite{
+    background-color: #fff;
+}
