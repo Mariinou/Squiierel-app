@@ -6,14 +6,6 @@
         <%= javascript_include_tag 'application', 'uikit.min', 'jquery', 'data-turbolinks-track' => true %>
         <%= csrf_meta_tags %>
         <%= favicon_link_tag 'favicon.ico' %>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.2.1/trianglify.min.js"></script>
-        <script>
-            var pattern = Trianglify({
-                width: window.innerWidth,
-                height: window.innerHeight
-            });
-            document.body.appendChild(pattern.body())
-        </script>
     </head>
     <body>
         <div class="uk-container uk-container-center">
