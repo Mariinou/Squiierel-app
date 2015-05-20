@@ -177,7 +177,7 @@
                 <tr class="uk-table-middle">
                     <td>
                         <%= link_to :action => "index", :entreprise => annonce.entreprise , :type => @type, :etat => @etat  do %>
-                        <%= annonce.entreprise %>
+                        <%= truncate(annonce.entreprise,length: 25) %>
                         <%end%>
                     </td>
                     <td><%= annonce.titre %></td>

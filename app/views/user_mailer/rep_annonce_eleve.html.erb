@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    </head>
+    <body>
+        <p>
+            Bonjour <%= @user.prenom %> <%= @user.nom %>,<br>
+        </p>
+        <p>
+            Nous avons communiqué votre intérêt de l'annonce : "<%= @annonce.titre %>" à son auteur.<br>
+        </p>
+        <p>
+            Il devrais vous contacter à l'adresse : <%= @user.email %> dans les plus brefs délais.<br>
+        </p>
+        <p>
+        <br>Cordialement,<br>L'équipe Squiierrel.
+        </p>
+    </body>
+</html>

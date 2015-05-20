@@ -46,7 +46,7 @@
             <tr>
                 <td><%=user.email%> </td>
                 <td><%= user.approved%> </td>
-                <td><%= link_to "Editer", admins_edit_user_path(user)%></td>
+                <td><%= link_to "Editer", admins_edit_user_path(user), :controller => :administrateurs_controller, :action => :edit %></td>
                 <td>
                 </td>
             </tr>

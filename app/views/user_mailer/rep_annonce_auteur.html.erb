@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    </head>
+    <body>
+        <p>
+            Bonjour <%= @auteur.prenom %> <%= @auteur.nom %>,<br>
+        </p>
+        <p>
+            Votre annonce : "<%= @annonce.titre %>" à l'adresse : <%= @url %>
+            <br> a retenu l'intérêt de <%= @eleve.prenom %> <%= @eleve.nom %>.<br>
+        </p>
+        <p>
+            Vous pouvez le contacter à l'adresse : <%= @eleve.email %> pour plus d'informations.<br>
+        </p>
+        <p>
+            <br>Cordialement,<br>L'équipe Squiierrel.
+        </p>
+    </body>
+</html>

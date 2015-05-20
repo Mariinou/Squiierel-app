@@ -20,11 +20,21 @@ class AdministrateursController < ApplicationController
         @user = User.find(params[:id])
     end
 
+    def update
+        @user = User.find(params[:id])
+        if @user.update_attributes(user_params)
+            flash[:notice] = 'Mise à jour de l\' utilisateur effectuée avec succès'
+            redirect_to users_index_path
+        else
+            render :action => 'edit'
+        end
+    end
+
     def create_user
         @user = User.new(user_params)
         if @user.save
             flash[:notice] = 'Utilisateur ajouté avec succès'
-            redirect_to admin_path
+            redirect_to users_index_path
         else
             render :action => 'new_user'
         end
