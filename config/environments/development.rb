@@ -36,21 +36,14 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  config.action_mailer.delivery_method = :sendmail
-  # Defaults to:
-  # config.action_mailer.sendmail_settings = {
-  #   location: '/usr/sbin/sendmail',
-  #   arguments: '-i -t'
-  # }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'no-reply@example.com'}
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.mailgun.com',
+    address:              'smtp.mailgun.org',
     port:                 587,
-    user_name:            'Squiierrel',
+    user_name:            'postmaster@sandbox38cb2b5f48dc49d6a7ec5b7df61307e9.mailgun.org',
     password:             'Squii3rr3l'
   }
 
