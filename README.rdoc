@@ -7,4 +7,5 @@ Avoir installé Ruby on rails
 
 ==Pour installer & lancer l'application
 <tt>git clone https://github.com/Squiierel/Squiierel-app.git</tt>
+<br />
 <tt>./install.sh & ./start.sh</tt>
