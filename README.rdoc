@@ -1,10 +1,10 @@
-#Squiierrel
-##Donnez de la puissance à vos stages !
+=Squiierrel
+==Donnez de la puissance à vos stages !
 ------------------------------
 
-##Prérequis
+==Prérequis
 Avoir installé Ruby on rails
 
-##Pour installer & lancer l'application
+==Pour installer & lancer l'application
 <tt>git clone https://github.com/Squiierel/Squiierel-app.git</tt>
 <tt>./install.sh & ./start.sh</tt>
