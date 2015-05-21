@@ -1,6 +1,6 @@
 <h2>Changer l'utilisateur</h2>
 
-<%= form_for @user, url: admins_update_user_path do |f| %>
+<%= form_for @user, url: {action: "update"}, :method => :POST do |f| %>
 
 <div class="login">
     <%= f.text_field :nom, placeholder: "Nom" %>
@@ -10,6 +10,11 @@
     <%= f.number_field :promo, placeholder: "Promotion" %>
     <%= f.text_field :numtel, placeholder: "Numéro de Téléphone" %>
     <%= f.text_field :role, placeholder: "Rôle" %>
+     <%= f.select(:type) do %>
+        <% [['Eleve', 'Eleve'],['Administrateur', 'Administrateur']].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+        <% end %>
+        <% end %>
     <%= f.label :Activé? %>
     <%= f.check_box :approved %>
 

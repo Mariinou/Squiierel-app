@@ -26,8 +26,7 @@ Rails.application.routes.draw do
     get 'administrateurs/new_user' => 'administrateurs#new_user', as: 'admins_new_user'
     get 'administrateurs/edit_user/:id' => 'administrateurs#edit_user', as: 'admins_edit_user'
     get 'administrateurs/users' => 'administrateurs#index', as: 'users_index'
-    get :admins_update_user, to: 'administrateurs#update', as: :admins_update_user
-
+    post "/admins_update_user/:id" => "administrateurs#update", :as => "admins_update_user"
 
     resources :users
 
