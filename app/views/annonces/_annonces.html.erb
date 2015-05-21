@@ -1,7 +1,7 @@
 <!-- Début de l'affichage des annonces !-->
 <br>
 <div class="uk-grid">
-    <div class="uk-width-1-3">
+    <div class="uk-width-1-3 ">
         <h3>Trier par type :</h3>
         <ul class="uk-subnav uk-subnav-line uk-subnav-pill">
             <%if @entreprise == nil%>
@@ -198,7 +198,12 @@
                     <td class="uk-hidden-small uk-hidden-medium uk-hidden-medium">
                         <%= annonce.created_at.to_date %>
                     </td>
-                    <td><%= annonce.genre %></td>
+                    <td class="uk-hidden-large uk-hidden-medium">
+                        <%= truncate(annonce.genre,length: 13) %>
+                    </td>
+                    <td class="uk-hidden-small">
+                        <%= annonce.genre %>
+                    </td>
                     <td>
                         <%= link_to 'Ouvrir', show_annonce_path(annonce), class: "uk-button" %>
                     </td>
