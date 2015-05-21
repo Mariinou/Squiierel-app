@@ -21,7 +21,7 @@ class AdministrateursController < ApplicationController
     end
 
     def update
-        @user = User.find(params[:id])
+        @user = User.find(user_params)
         if @user.update_attributes(user_params)
             flash[:notice] = 'Mise à jour de l\' utilisateur effectuée avec succès'
             redirect_to users_index_path
