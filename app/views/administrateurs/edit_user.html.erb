@@ -1,6 +1,6 @@
 <h2>Changer l'utilisateur</h2>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, url: admins_update_user_path do |f| %>
 
 <div class="login">
     <%= f.text_field :nom, placeholder: "Nom" %>

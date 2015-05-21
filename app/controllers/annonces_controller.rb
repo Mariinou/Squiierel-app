@@ -142,6 +142,17 @@ class AnnoncesController < ApplicationController
         end
     end
 
+    def send_rep_mails
+        @user=params[:user]
+        @id=params[:id]
+        @email=Annonce.find(@id).moyencontact
+        @emaileleve=User.find(@user).email
+        UserMailer.rep_annonce_auteur(@user,@email,@id).deliver
+        UserMailer.rep_annonce_eleve(@user,@emaileleve,@id).deliver
+        flash[:notice] = "Email de contact envoyé"
+        redirect_to home_path
+    end
+
     def destroy
         @annonce = Annonce.find(params[:id])
         @annonce.destroy
