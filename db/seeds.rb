@@ -12,3 +12,4 @@ Annonce.create!(entreprise: 'jocorps', titre: 'vente de poulet', genre: 'Stage',
 Annonce.create!(entreprise: 'Test.inc', titre: 'Apprendre à voler', genre: 'Apprentissage', description: 'Afin d\'apprendre à voler il faut d\'abord apprendre à marcher pour le bien de tous', duree: '3 ans', datedebut: '01/01/1995', moyencontact: 'jambon@patate.fr', etat: 'true', validee: 'true')
 
 User.create!(nom: 'leboss', prenom: 'pedro', email: 'pola@patate.fr', approved: 'true', type: 'Eleve', role: 'sousfifre', password: 'lovelove')
+
