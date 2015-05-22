@@ -3,7 +3,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   color: #444444;
-  background: url("pattern.svg") no-repeat center center fixed;
+  background: url("/assets/pattern.svg") no-repeat center center fixed;
   background-size: cover;
   height: 100%
 }
