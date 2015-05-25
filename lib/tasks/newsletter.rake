@@ -1,7 +1,6 @@
 namespace :newsletter do
-    desc "test"
+    desc "newsletter"
     task :send => :environment do
-        puts "Newsletter sent"
-        #ici action
+        UserMailer.newsletter.deliver
     end
 end
