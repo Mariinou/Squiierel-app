@@ -27,6 +27,8 @@ gem 'devise'
 
 gem 'whenever'
 
+gem 'clockwork', require: false
+
 gem 'rails_12factor', group: :production
 gem 'puma', group: :production
 
