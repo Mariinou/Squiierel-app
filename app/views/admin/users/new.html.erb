@@ -3,7 +3,7 @@
         <br />
         <h2>Nouvel utilisateur</h2>
     </div>
-    <%= form_for @user, html: { class:"uk-form" } do |f| %>
+    <%= form_for [:admin, @user], html: { class:"uk-form" } do |f| %>
     <br />
     <div class="uk-grid">
         <div class="uk-width-3-6">
