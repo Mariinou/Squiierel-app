@@ -40,6 +40,13 @@ class AdministrateursController < ApplicationController
         end
     end
 
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        flash[:notice] = 'Utilisateur supprimmé'
+        redirect_to users_index_path
+    end
+
     private
 
     def user_params
