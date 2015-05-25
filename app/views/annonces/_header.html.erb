@@ -19,13 +19,13 @@
         </li>
         <%end%>
 
-        <% if current_page?(users_index_path) %>
+        <% if current_page?(admin_users_path) %>
         <li class="uk-active">
-            <%= link_to 'Utilisateurs', users_index_path %>
+            <%= link_to 'Utilisateurs', admin_users_path %>
         </li>
         <% else %>
         <li>
-            <%= link_to 'Utilisateurs', users_index_path %>
+            <%= link_to 'Utilisateurs', admin_users_path %>
         </li>
         <%end%>
     </ul>

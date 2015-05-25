@@ -25,6 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 
+gem 'rails-i18n'
+
+gem 'dynamic_form'
+
 gem 'whenever'
 
 gem 'clockwork', require: false

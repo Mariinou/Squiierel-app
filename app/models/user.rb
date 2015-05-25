@@ -26,4 +26,11 @@ class User < ActiveRecord::Base
         end
         recoverable
     end
+
+    def self.send_newsletter
+        annonce_ids = Annonce.select(:id).where(etat: true).to_a.map(&:id)
+        self.select(:email).all.each{|user|
+            UserMailer.newsletter(user.email, annonce_ids).deliver
+        }
+    end
 end

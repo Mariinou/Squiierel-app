@@ -209,7 +209,7 @@
                     </td>
                     <%if admin?%>
                     <td class="uk-hidden-small" >
-                        <%= link_to 'Supprimer'.html_safe, annonce_path(annonce), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+                        <%= link_to 'Supprimer'.html_safe, annonce_path(annonce), :method => :delete, "data-confirm" => 'Etes vous sûr ?', class: "uk-button"%>
                     </td>
                     <td class="uk-hidden-small">
                         <%= link_to 'Editer'.html_safe, edit_annonce_path(annonce), class: "uk-button" %>
@@ -219,7 +219,7 @@
                 <tr class="uk-text-primary uk-table-middle uk-hidden-large uk-hidden-medium" >
                     <%if admin?%>
                     <td>
-                        <%= link_to 'Supprimer'.html_safe, annonce_path(annonce), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+                        <%= link_to 'Supprimer'.html_safe, annonce_path(annonce), :method => :delete, "data-confirm" => 'Etes vous sûr ?', class: "uk-button"%>
                     </td>
                     <td>
                         <%= link_to 'Editer'.html_safe, edit_annonce_path(annonce), class: "uk-button" %>

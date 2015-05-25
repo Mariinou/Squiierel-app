@@ -1,12 +1,12 @@
 <h2>Changer l'utilisateur</h2>
 
-<%= form_for @user, as: :user, url: {action: "update"}, :method => :POST do |f| %>
+<%= form_for [:admin, @user] do |f| %>
+<%=f.error_messages%>
 
 <div class="login">
     <%= f.text_field :nom, placeholder: "Nom" %>
     <%= f.text_field :prenom, placeholder: "Prénom" %>
     <%= f.email_field :email, placeholder: "Email" %>
-    <%= f.text_field :password, placeholder: "Mot de passe" %>
     <%= f.number_field :promo, placeholder: "Promotion" %>
     <%= f.text_field :numtel, placeholder: "Numéro de Téléphone" %>
     <%= f.text_field :role, placeholder: "Rôle" %>

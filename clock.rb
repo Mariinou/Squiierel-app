@@ -8,5 +8,5 @@ module Clockwork
         puts "Running #{job}"
     end
 
-    every(1.minutes, 'rake "newsletter:send"')
+    every(20.seconds, 'rake "newsletter:send"')
 end

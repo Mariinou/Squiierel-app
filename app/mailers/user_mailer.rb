@@ -22,10 +22,8 @@ class UserMailer < ApplicationMailer
         mail(to: @email,from: "noreply@squiierrel.com", subject: "Confirmation de votre intérêt à l'annonce : " + @annonce.titre)
     end
 
-    def newsletter
-        User.all.each do |user|
-            @email=user.email
-        mail(to: @email,from: "noreply@squiierrel.com", subject: "Les annonces du moment [" + Time.now.strftime("%Y%m") + "]")
-        end
+    def newsletter(email,annonce_ids)
+        @annonce_ids=annonce_ids
+            mail(to: email,from: "noreply@squiierrel.com", subject: "Les annonces du moment [" + I18n.l(Time.now, format: "%B").capitalize + "]")
     end
 end

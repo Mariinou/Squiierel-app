@@ -1,4 +1,4 @@
-class AdministrateursController < ApplicationController
+class Admin::UsersController < ApplicationController
 
     before_filter :authorize
 
@@ -12,29 +12,30 @@ class AdministrateursController < ApplicationController
         end
     end
 
-    def new_user
+    def new
         @user = User.new
     end
 
-    def edit_user
-        @user = User.find(params[:id])
+    def edit
+        @user = User.find(params[:id]).becomes(User)
     end
 
     def update
         @user = User.find(params[:id])
         if @user.update_attributes(user_params)
             flash[:notice] = 'Mise à jour de l\' utilisateur effectuée avec succès'
-            redirect_to users_index_path
+            redirect_to admin_users_path
         else
+            @user=@user.becomes(User)
             render :action => 'edit'
         end
     end
 
-    def create_user
+    def create
         @user = User.new(user_params)
         if @user.save
             flash[:notice] = 'Utilisateur ajouté avec succès'
-            redirect_to users_index_path
+            redirect_to admin_users_path
         else
             render :action => 'new_user'
         end
@@ -44,7 +45,7 @@ class AdministrateursController < ApplicationController
         @user = User.find(params[:id])
         @user.destroy
         flash[:notice] = 'Utilisateur supprimmé'
-        redirect_to users_index_path
+        redirect_to admin_users_path
     end
 
     private

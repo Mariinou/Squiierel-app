@@ -1,0 +1,62 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+fr:
+  devise:
+    confirmations:
+      confirmed: "Email confirmé avec succès."
+      send_instructions: "Vous allez reçevoir un email indiquant comment confirmer votre email d'ici quelques minutes."
+      send_paranoid_instructions: "Vous allez reçevoir un email indiquant comment confirmer votre email d'ici quelques minutes."
+    failure:
+      already_authenticated: "Vous êtes déjà connecté."
+      inactive: "Votre compte n'est pas encore activé."
+      invalid: " %{authentication_keys} ou mot de passe invalide."
+      locked: "Votre compte est verrouillé."
+      last_attempt: "Il vous reste 1 essai avant que votre compte soit verrouillé."
+      not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
+      timeout: "Votre session à expirée. Veuillez vous reconnecter."
+      unauthenticated: "Vous devez vous connecter avant de continuer."
+      unconfirmed: "Vous devez confirmer votre email avant de continuer."
+      not_approved: "Votre compte n'as pas encore été validé par l'administration."
+    mailer:
+      confirmation_instructions:
+        subject: "Instructions de confirmation"
+      reset_password_instructions:
+        subject: "Instructions de modification du mot de passe."
+      unlock_instructions:
+        subject: "Instructions de déverrouillage."
+    omniauth_callbacks:
+      failure: "Impossible de vous identifier %{kind} à cause de \"%{reason}\"."
+      success: "Connecté avec succès sur le compte: %{kind}."
+    passwords:
+      no_token: "Vous devez confirmer votre email avant de continuer."
+      send_instructions: "Vous allez reçevoir un email indiquant comment réinitialiser votre mot de passe d'ici quelques minutes."
+      send_paranoid_instructions: "Vous allez reçevoir un email indiquant comment réinitialiser votre mot de passe d'ici quelques minutes."
+      updated: "Votre mot de passe a été mis à jour avec succès, vous êtes connecté."
+      updated_not_active: "Votre mot de passe à été modifié avec succès."
+    registrations:
+      destroyed: "Votre session a été fermée avec succès. Nous éspérons vous revoir bientôt !"
+      signed_up: "Bienvenue ! Vous avez été connecté avec succès."
+      signed_up_but_inactive: "Identifiants corrects. Cependant vous ne pouvez pas vous connecter car votre compte n'est pas validé."
+      signed_up_but_locked: "Identifiants corrects. Cependant vous ne pouvez pas vous connecter car votre compte est verrouillé."
+      signed_up_but_unconfirmed: "Un email de confirmation vient de vous être envoyé."
+      update_needs_confirmation: "Un email de confirmation vient de voue être envoyé."
+      user:
+        signed_up_but_not_approved: "Vous avez été enregistré avec succès mais votre compte n'as pas encore été validé par un administrateur."
+    sessions:
+      signed_in: "Connecté avec succès."
+      signed_out: "Déconnection réussie."
+      already_signed_out: "Déconnection résussie."
+    unlocks:
+      send_instructions: "Vous allez reçevoir un email indiquant comment déverrouiller votre compte."
+      send_paranoid_instructions: "Si votre compte existe, vous aller reçevoir un email indiquant comment déverrouiller votre compte."
+      unlocked: "Votre compte a été déverrouillé avec succès."
+  errors:
+    messages:
+      already_confirmed: "was already confirmed, please try signing in."
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one."
+      expired: "a expiré, veuiller réessayer."
+      not_found: "introuvable"
+      not_locked: "n'était pas verrouillé"
+      not_saved:
+        one: "Une erreur a empêchée que  %{resource} soit sauvegardé."
+        other: "L'erreur %{count} a empêchée %{resource} d'être sauvergardée"

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     # Example resource route (maps HTTP verbs to controller actions automatically):
     #   resources :products
     root 'annonces#index', :as => :home
-    get '/admin' => 'annonces#admin', :as => :admin
+    #get '/admin' => 'annonces#admin', :as => :admin
     get '/annonces/new' => 'annonces#new', :as => :new_annonce
     get '/annonces/edit/:id' => 'annonces#edit', :as => :edit_annonce
     get '/annonces/show/:id' => 'annonces#show', :as => :show_annonce
@@ -23,13 +23,9 @@ Rails.application.routes.draw do
 
     resources :annonces
 
-    get 'administrateurs/new_user' => 'administrateurs#new_user', as: 'admins_new_user'
-    get 'administrateurs/edit_user/:id' => 'administrateurs#edit_user', as: 'admins_edit_user'
-    get 'administrateurs/users' => 'administrateurs#index', as: 'users_index'
-    post "/admins_update_user/:id" => "administrateurs#update", :as => "admins_update_user"
-
-    resources :users
-
+    namespace :admin do
+        resources :users
+    end
 
     # Example resource route with options:
     #   resources :products do
