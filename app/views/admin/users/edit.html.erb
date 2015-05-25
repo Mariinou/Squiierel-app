@@ -1,25 +1,59 @@
-<h2>Changer l'utilisateur</h2>
+<div class="uk-grid uk-container-center">
+    <div class="uk-width-1-2">
+        <br />
+        <h2>Changer l'utilisateur</h2>
+    </div>
+    <div class="uk-width-1-4">
+        <br />
+        <%= link_to "Retour", :back, class:"uk-button" %>
+    </div>
+    <%= form_for [:admin, @user], html: { class:"uk-form" } do |f| %>
+    <%=f.error_messages%>
 
-<%= form_for [:admin, @user] do |f| %>
-<%=f.error_messages%>
-
-<div class="login">
-    <%= f.text_field :nom, placeholder: "Nom" %>
-    <%= f.text_field :prenom, placeholder: "Prénom" %>
-    <%= f.email_field :email, placeholder: "Email" %>
-    <%= f.number_field :promo, placeholder: "Promotion" %>
-    <%= f.text_field :numtel, placeholder: "Numéro de Téléphone" %>
-    <%= f.text_field :role, placeholder: "Rôle" %>
-     <%= f.select(:type) do %>
+    <br />
+    <div class="uk-grid">
+    <div class="uk-width-1-2">
+        <%= f.text_field :nom, placeholder: "Nom" %>
+    </div>
+    <div class="uk-width-1-2">
+        <%= f.text_field :prenom, placeholder: "Prénom" %>
+    </div>
+    </div>
+    <br />
+   <div class="uk-grid">
+    <div class="uk-width-1-2">
+        <%= f.email_field :email, placeholder: "Email" %>
+    </div>
+    <div class="uk-width-1-2">
+        <%= f.number_field :promo, placeholder: "Promotion" %>
+    </div>
+    </div>
+    <br />
+    <div class="uk-grid">
+    <div class="uk-width-1-2">
+        <%= f.text_field :numtel, placeholder: "Numéro de Téléphone" %>
+    </div>
+    <div class="uk-width-1-2">
+        <%= f.text_field :role, placeholder: "Rôle" %>
+    </div>
+    </div>
+    <br />
+    <div class="uk-grid">
+    <div class="uk-width-1-2">
+        <%= f.select(:type) do %>
         <% [['Eleve', 'Eleve'],['Administrateur', 'Administrateur']].each do |c| -%>
         <%= content_tag(:option, c.first, value: c.last) %>
         <% end %>
         <% end %>
-    <%= f.label :Activé? %>
-    <%= f.check_box :approved %>
-
-    <div class="actions ">
+    </div>
+    <div class="uk-width-1-2">
+        <%= f.label :Activé? %>
+        <%= f.check_box :approved %>
+    </div>
+    </div>
+    <br />
+    <div class="actions uk-text-contrast uk-width-2-6">
         <%= f.submit "Enregistrer",class: "btn btn-primary btn-block btn-large" %>
     </div>
+    <% end %>
 </div>
-<% end %>

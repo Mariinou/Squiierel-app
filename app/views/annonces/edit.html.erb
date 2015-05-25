@@ -16,28 +16,30 @@
         <%= f.email_field :moyencontact, placeholder: "Email de contact",class:"uk-width-2-6"%>
         <br />
         <br />
-        <%= f.label :Date_de_début,class:"uk-width-1-6" %>
+        <%= f.label :Date_de_début,class:"uk-width-2-6" %>
         <br />
         <%= f.date_field :datedebut, placeholder: "Date de début",class:"uk-width-1-6" %>
         <%= f.text_field :duree, placeholder: "Durée",class:"uk-width-1-6" %>
         <br />
         <br />
         <%if admin?%>
-        <%= f.label :Valider,class:"uk-width-1-6" %>
-        <br />
-        <%= f.check_box :validee %>
-        <br />
-        <%= f.label :Disponible,class:"uk-width-1-6" %>
-        <br />
-        <%= f.check_box :etat %>
-        <br />
-        <br />
+        <div class="uk-grid">
+            <div class="uk-width-1-2">
+                <%= f.label :Valider%>
+                <br />
+                <%= f.check_box :validee %>
+            </div>
+            <br />
+            <div class="uk-width-1-2">
+                <%= f.label :Disponible%>
+                <br />
+                <%= f.check_box :etat %>
+            </div>
+        </div>
         <%end%>
+        <br />
         <%= f.text_area :description, placeholder: "Description",:size => "89x10" %>
-
         <br />
-        <br />
-
         <div class="actions uk-text-contrast">
             <br />
             <%= f.submit "Enregistrer",class: "uk-button uk-button-primary uk-button-large" %>
