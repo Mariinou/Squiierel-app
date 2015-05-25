@@ -1,6 +1,6 @@
 namespace :newsletter do
     desc "newsletter"
     task :send => :environment do
-        UserMailer.newsletter.deliver
+        User.send_newsletter
     end
 end
