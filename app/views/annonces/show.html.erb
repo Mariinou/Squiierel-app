@@ -32,14 +32,16 @@
         <br />
         <br />
         <div class="uk-width-1-2">
-        <div class="uk-panel uk-panel-box uk-width-1-2" style="margin-left:30px; height: 200px; width: 700px;">
-            <p><%= @annonce.description %></p>
-        </div>
+            <div class="uk-panel uk-panel-box uk-width-1-2" style="height: 200px; width: 700px;">
+                <p><%= @annonce.description %></p>
+            </div>
         </div>
         <br />
         <br />
-        <div class="uk-width-1-4">
-        <%= link_to "Répondre à l'annonce", {:controller => "annonces", :action => "send_rep_mails", :id => @annonce.id ,:user => current_user },{ :class => "uk-button reponse uk-button-success"} %>
+        <div class="uk-grid">
+            <div class="uk-width-1-4">
+                <%= link_to "Répondre à l'annonce", {:controller => "annonces", :action => "send_rep_mails", :id => @annonce.id ,:user => current_user },{ :class => "uk-button reponse uk-button-success"} %>
+            </div>
         </div>
     </div>
 </div>
