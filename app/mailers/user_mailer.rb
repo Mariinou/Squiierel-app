@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
         @email=email
         @annonce = Annonce.find(id)
         @eleve = User.find(user)
-        @url = "http://localhost:3000/annonces/show/" + id
+        @url = "https://squiierrel.scalingo.io/annonces/show/" + id
         mail(to: @email,from: "noreply@squiierrel.com", subject: 'Réponse à votre annonce : ' + @annonce.titre)
     end
 
