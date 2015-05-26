@@ -5,10 +5,39 @@
     </head>
     <body>
         <h1>Annonces Disponibles : </h1>
-        <p>
-            Ici se placera la liste des annonces disponibles
-        </p>
+        <br />
 
+        <table>
+            <thead>
+                <tr>
+                    <th>Entreprise</th>
+                    <th>Titre</th>
+                    <th>Durée</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for annonce_id in @annonce_ids %>
+                <tr>
+                    <td>
+                        <%=Annonce.find(annonce_id).entreprise%>
+                    </td>
+                    <td>
+                        <%=Annonce.find(annonce_id).titre%>
+                    </td>
+                    <td>
+                        <%=Annonce.find(annonce_id).duree%>
+                    </td>
+                    <td>
+                        <%=Annonce.find(annonce_id).genre%>
+                    </td>
+                </tr>
+                <%end%>
+            </tbody>
+        </table>
+        <p>
+
+        </p>
         <p>
             <br>Cordialement,<br>L'équipe Squiierrel.
         </p>

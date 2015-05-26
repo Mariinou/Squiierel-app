@@ -12,7 +12,7 @@
     <body>
         <div class="uk-container uk-container-center">
             <!-- Header!-->
-            <%= render "annonces/header" %>
+            <%= render "shared/header" %>
             <!--Fin Header!-->
             <%= yield %>
             <%if notice.present?%>
@@ -33,7 +33,7 @@
             <%else%>
             <%end%>
             <!-- Offcanvas!-->
-            <%= render "annonces/offcanvas" %>
+            <%= render "shared/offcanvas" %>
             <!--Fin Offcanvas!-->
         </div>
     </body>
