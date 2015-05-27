@@ -255,11 +255,9 @@
                     <th>Ouvrir</th>
                     <%if admin?%>
                     <th class="uk-hidden-small">
-                        <i class="fa fa-minus fa-fw"></i>
                         &nbsp;Supprimer
                     </th>
                     <th class="uk-hidden-small">
-                        <i class="fa fa-pencil fa-fw"></i>
                         &nbsp;Editer
                     </th>
                     <%end%>
@@ -293,20 +291,20 @@
                     </td>
                     <%if admin?%>
                     <td class="uk-hidden-small" >
-                        <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonceinvalide), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+                        <%= link_to 'Supprimer'.html_safe, annonce_path(annonceinvalide), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
                     </td>
                     <td class="uk-hidden-small">
-                        <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonceinvalide), class: "uk-button" %>
+                        <%= link_to 'Editer'.html_safe, edit_annonce_path(annonceinvalide), class: "uk-button" %>
                     </td>
                     <%end%>
                 </tr>
                 <tr class="uk-text-primary uk-table-middle uk-hidden-large uk-hidden-medium" >
                     <%if admin?%>
                     <td>
-                        <%= link_to '<i class="fa fa-minus fa-fw"></i>&nbsp;Supprimer'.html_safe, annonce_path(annonceinvalide), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
+                        <%= link_to 'Supprimer'.html_safe, annonce_path(annonceinvalide), :method => :delete, :confirm => 'Etes vous sûr ?', class: "uk-button"%>
                     </td>
                     <td>
-                        <%= link_to '<i class="fa fa-pencil fa-fw"></i>&nbsp;Editer'.html_safe, edit_annonce_path(annonceinvalide), class: "uk-button" %>
+                        <%= link_to 'Editer'.html_safe, edit_annonce_path(annonceinvalide), class: "uk-button" %>
                     </td>
                     <%end%>
                 </tr>
