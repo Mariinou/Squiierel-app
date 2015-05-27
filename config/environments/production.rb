@@ -72,17 +72,17 @@ Rails.application.configure do
     config.active_support.deprecation = :notify
 
     # Use default logging formatter so that PID and timestamp are not suppressed.
-    config.log_formatter = ::Logger::Formatter.new
-    config.action_mailer.perform_deliveries = true
-    config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.default_options = {from: 'no-reply@squiierrel.com'}
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-        address:              'smtp.mailgun.org',
-        port:                 587,
-        user_name:            'postmaster@sandbox38cb2b5f48dc49d6a7ec5b7df61307e9.mailgun.org',
-        password:             'Squii3rr3l'
-        }
+    
+    #config.action_mailer.perform_deliveries = true
+    #config.action_mailer.raise_delivery_errors = true
+    #config.action_mailer.default_options = {from: 'no-reply email'}
+    #config.action_mailer.delivery_method = :smtp
+    #config.action_mailer.smtp_settings = {
+    #    address:              'smtp.server.tld',
+    #    port:                 587,
+    #    user_name:            'email@smtp.server.tld',
+    #    password:             'password'
+    #    }
 
     # Do not dump schema after migrations.
     config.active_record.dump_schema_after_migration = false

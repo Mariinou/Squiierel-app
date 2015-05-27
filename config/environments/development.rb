@@ -36,16 +36,16 @@ Rails.application.configure do
     # Raises helpful error messages.
     config.assets.raise_runtime_errors = true
 
-    config.action_mailer.perform_deliveries = true
-    config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.default_options = {from: 'no-reply@squiierrel.com'}
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-        address:              'smtp.mailgun.org',
-        port:                 587,
-        user_name:            'postmaster@sandbox38cb2b5f48dc49d6a7ec5b7df61307e9.mailgun.org',
-        password:             'Squii3rr3l'
-        }
+    #config.action_mailer.perform_deliveries = true
+    #config.action_mailer.raise_delivery_errors = true
+    #config.action_mailer.default_options = {from: 'no-reply email'}
+    #config.action_mailer.delivery_method = :smtp
+    #config.action_mailer.smtp_settings = {
+    #    address:              'smtp.server.tld',
+    #    port:                 587,
+    #    user_name:            'email@smtp.server.tld',
+    #    password:             'password'
+    #    }
 
     # Raises error for missing translations
     # config.action_view.raise_on_missing_translations = true
