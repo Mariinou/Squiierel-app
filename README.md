@@ -22,6 +22,8 @@ puis
     rails console
     User.create!(nom: '[Votre nom]', prenom: '[Votre Prénom]', email: '[Un Email Valide]', approved: 'true', type: '[Eleve ou Administrateur]', role: '[Rôle]', password: '[Mot de passe]')
 
+Il est conseillé que le premier utilisateur soit un administrateur afin de faciliter la création ultérieur des autres utilisateurs
+
 ##Permettre l'envoi de mails : 
 
 Modifier le fichier correspondant à votre environnement et décommenter/remplir les lignes suivantes avec vos identifiants smtp :
