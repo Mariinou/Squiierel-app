@@ -18,26 +18,28 @@
         <br />
         <%= f.label :Date_de_début,class:"uk-width-2-6" %>
         <br />
-        <%= f.date_field :datedebut, placeholder: "Date de début",class:"uk-width-1-6" %>
+        <%= f.date_field :datedebut, placeholder: "Date de début",class:"uk-width-2-6" %>
         <%= f.text_field :duree, placeholder: "Durée",class:"uk-width-1-6" %>
         <br />
         <br />
         <%if admin?%>
         <div class="uk-grid">
-            <div class="uk-width-1-2">
-                <%= f.label :Valider%>
-                <br />
-                <%= f.check_box :validee %>
+            <div classs="uk-width-1-4">
+                        
             </div>
-            <br />
-            <div class="uk-width-1-2">
-                <%= f.label :Disponible%>
+            <div class="uk-width-1-6">
+                <%= f.label :Valider,class:"uk-width-1-6" %>
                 <br />
-                <%= f.check_box :etat %>
+                 <%= f.check_box :validee %>
+            </div>
+            <div class="uk-width-1-6">
+                <%= f.label :Disponible,class:"uk-width-1-6" %>
+                <br />
+                  <%= f.check_box :etat %>
             </div>
         </div>
-        <%end%>
         <br />
+        <%end%>
         <%= f.text_area :description, placeholder: "Description",:size => "89x10" %>
         <br />
         <div class="actions uk-text-contrast">
@@ -53,4 +55,3 @@
         <%= link_to "Retour", :back, class:"uk-button" %>
     </div>
 </div>
-
